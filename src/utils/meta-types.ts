@@ -1,32 +1,33 @@
-import type { VNode, Component } from "vue";
+import type { VNode, Component } from 'vue'
 export type Slot =
   | VNode
   | string
   | {
-      render: Function;
+      render: Function
     }
   | Function
-  | Component;
+  | Component
 type SlotDictionary = {
-  [key: string]: Slot;
-};
+  [key: string]: Slot
+}
 
 interface APropType {
-  description: string;
-  type: any;
-  validator?: Function;
-  required?: true;
-  default?: any;
-  enums?: any[];
-  conditionalDescription?: string;
+  description: string
+  type: any
+  validator?: Function
+  required?: true
+  default?: any
+  enums?: any[]
+  conditionalDescription?: string
 }
 
 interface AProps {
-  [key: string]: APropType;
+  [key: string]: APropType
 }
 
 export interface AComponentMeta {
-  name: string;
-  props?: AProps;
-  slots?: SlotDictionary;
+  name: string
+  description: string
+  props?: AProps
+  slots?: SlotDictionary
 }

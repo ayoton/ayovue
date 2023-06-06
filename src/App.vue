@@ -1,5 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { AButton } from '.'
+</script>
 
 <template>
-  <div></div>
+  <div>
+    <AButton>Button</AButton>
+  </div>
 </template>
