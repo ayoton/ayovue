@@ -1,14 +1,13 @@
 <script lang="ts" setup>
-import { shallowReactive } from 'vue'
+import { ref, shallowReactive } from 'vue'
 
 const props = defineProps({
   comp: { type: Object, default: () => ({}) },
   compMeta: { type: Object, default: () => ({}) }
 })
 
+// eslint-disable-next-line vue/no-setup-props-destructure
 const propsMeta: any = props.compMeta.props
-
-console.log('propsmeta', propsMeta)
 
 const reactiveProps: any = {}
 
@@ -34,22 +33,14 @@ for (const key in propsMeta) {
   reactiveProps[key] = propsMeta[key].default
 }
 
-console.log(reactiveProps)
-
 const vModels = shallowReactive(reactiveProps)
 
-// const booleanProps = Object.keys(props).filter((p) => propsMeta[p].type.name === 'Boolean')
-// const stringProps = Object.keys(props).filter((p) => propsMeta[p].type.name === 'String')
-// const numberProps = Object.keys(props).filter(
-//   (p) =>
-//     propsMeta[p].type.name === 'Number' ||
-//     (Array.isArray(propsMeta[p].type) && propsMeta[p].type[0].name === 'Number')
-// )
-// const enumProps = Object.keys(props).filter(
-//   (p) => Array.isArray(propsMeta[p].type) && typeof propsMeta[p].type[0] !== 'function'
-// )
+const codeBlock = ref<HTMLDivElement>()
 
-// console.log(booleanProps, stringProps, enumProps, numberProps)
+const copyCode = () => {
+  navigator.clipboard.writeText(codeBlock.value?.innerText || '')
+  return
+}
 </script>
 
 <template>
@@ -63,32 +54,55 @@ const vModels = shallowReactive(reactiveProps)
 
     <div class="row">
       <div class="col">
-        <div v-for="bp in booleanProps">
+        <div v-for="bp in booleanProps" :key="bp">
           <label> <input type="checkbox" v-model="vModels[bp]" /> {{ bp }} </label>
         </div>
       </div>
       <div class="col">
-        <div v-for="sp in stringProps">
+        <div v-for="sp in stringProps" :key="sp">
           <div>{{ sp }}</div>
           <input type="text" v-model="vModels[sp]" />
         </div>
       </div>
       <div class="col">
-        <div v-for="np in numberProps">
+        <div v-for="np in numberProps" :key="np">
           <div>{{ np }}</div>
           <input type="number" v-model="vModels[np]" />
         </div>
       </div>
 
       <div class="col">
-        <div v-for="ep in enumProps">
+        <div v-for="ep in enumProps" :key="ep">
           <div>{{ ep }}</div>
           <select v-model="vModels[ep]">
-            <option v-for="op in propsMeta[ep].type">
+            <option v-for="op in propsMeta[ep].type" :key="op">
               {{ op }}
             </option>
           </select>
         </div>
+      </div>
+    </div>
+    <div class="gen-code">
+      <button @click="copyCode" class="copy-btn a-button">Copy</button>
+      <div class="pg-code" ref="codeBlock">
+        <span class="symb">&lt;</span><span class="tag-name">{{ compMeta.name }}</span>
+        <!-- all props -->
+        <template v-for="(val, key) in vModels" :key="key">
+          <!-- {{ key }} -->
+          <template v-if="booleanProps.includes(key)">
+            <span v-if="val" class="prop-name">&nbsp;&nbsp;{{ key }}</span>
+          </template>
+          <template v-else-if="propsMeta[key].default !== val && val !== ''">
+            <span class="prop-name"
+              >&nbsp;&nbsp;<span v-if="numberProps.includes(key)">:</span>{{ key
+              }}<span class="code-eq">=</span><span class="code-val">"{{ val }}"</span></span
+            >
+          </template>
+        </template>
+        <span class="symb">&gt;</span>
+        <!-- Slots -->
+        <span class="symb">&lt;/</span><span class="tag-name">{{ compMeta.name }}</span
+        ><span class="symb">&gt;</span>
       </div>
     </div>
   </div>
@@ -103,5 +117,37 @@ const vModels = shallowReactive(reactiveProps)
 .col {
   flex: 1;
   min-width: 222px;
+}
+.pg-code {
+  font-size: 14px;
+  border: 1px solid green;
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  background: #242424;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+.pg-code .symb {
+  color: #89ddff;
+}
+.pg-code .tag-name {
+  color: #ffcb6b;
+}
+.pg-code .prop-name {
+  color: #c792ea;
+  display: block;
+}
+.pg-code .code-eq {
+  color: white;
+}
+.pg-code .code-val {
+  color: #c3e88d;
+}
+.gen-code {
+  position: relative;
+}
+.copy-btn {
+  position: absolute;
+  right: 0.3em;
+  top: 0.3em;
 }
 </style>
