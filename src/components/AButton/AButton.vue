@@ -12,14 +12,18 @@ const props = defineProps({
   flat: booleanProp,
   text: booleanProp,
   icon: booleanProp,
-  block: booleanProp
+  block: booleanProp,
+  loaderClass: {
+    type: String,
+    default: 'a-loading'
+  }
 })
 
 const classes = computed(() => {
   return {
     'a-button': true,
     [`a-${props.variant}`]: true,
-    'a-loading': props.loading,
+    [props.loaderClass]: props.loading,
     'a-outlined': props.outlined,
     'a-raised': props.raised,
     'a-rounded': props.rounded,
