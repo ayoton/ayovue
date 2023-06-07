@@ -1,1 +1,105 @@
-@import url("../base/button.css");
+@import url('../base/button.css');
+.a-button {
+  border-radius: 0.2em;
+  color: var(--a-color, white);
+  background: var(--a-background, var(--a-c-theme-700));
+  border: 1px solid var(--a-c-theme-600);
+  padding: 0.4em 1em;
+  transition: all 0.1s ease;
+
+  &:hover {
+    background: var(--a-c-theme-500);
+  }
+
+  &:active {
+    transform: scale(0.95);
+    outline: 0 solid var(--a-c-theme-200);
+  }
+  &:focus {
+    outline: 3px solid var(--a-c-theme-200);
+  }
+
+  &:not(.a-text):not(.a-outlined) {
+    background: var(--a-c-theme-600);
+    color: var(--a-c-theme-50);
+    fill: var(--a-c-theme-50);
+  }
+  &:not(.a-text):not(.a-outlined):hover {
+    background: var(--a-c-theme-500);
+    border-color: var(--a-c-theme-500);
+    color: var(--a-c-theme-50);
+  }
+  &.a-text,
+  &.a-outlined {
+    background: transparent;
+    color: var(--a-c-theme-600);
+    fill: var(--a-c-theme-600);
+  }
+  &.a-text:hover,
+  &.a-outlined:hover {
+    background: var(--a-c-theme-50);
+  }
+
+  &.a-raised,
+  .a-button-group.a-raised {
+    box-shadow: 0 3px 1px -2px var(--a-c-gray-500), 0 2px 2px 0 var(--a-c-gray-400),
+      0 1px 5px 0 var(--a-c-gray-300);
+  }
+  &.a-raised.a-text,
+  &.a-raised.a-outlined {
+    box-shadow: 0 3px 1px -2px var(--a-c-gray-400), 0 2px 2px 0 var(--a-c-gray-300),
+      0 1px 5px 0 var(--a-c-gray-200);
+  }
+
+  &.a-icon {
+    fill: var(--a-c-theme-600);
+    padding: 1em;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+/* .a-button-group > .a-button.a-block {
+  width: initial;
+} */
+
+/* .a-button-group {
+  display: inline-flex;
+  vertical-align: middle;
+  flex-wrap: wrap;
+  border-radius: 0.2em;
+}
+.a-button-group > .a-button {
+  --font-size: 1rem;
+  --border-radius: calc(var(--font-size) * 0.2);
+}
+.a-button-group.a-flat,
+.a-button-group.a-flat > .a-button {
+  --border-radius: 0;
+}
+
+.a-button-group.a-rounded,
+.a-button-group.a-rounded > .a-button {
+  --border-radius: 10rem;
+}
+
+.a-button-group > .a-button:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.a-button-group > .a-button.a-raised {
+  box-shadow: none;
+}
+.a-button-group > .a-button:not(:focus):not(:last-child) {
+  border-right: none;
+}
+.a-button-group > .a-button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.a-button-group > .a-button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+} */

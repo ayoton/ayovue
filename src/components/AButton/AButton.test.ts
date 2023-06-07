@@ -13,7 +13,7 @@ describe('AButton.vue', () => {
         icon: true,
         loading: true,
         block: true,
-        variant: true,
+        variant: 'primary',
         size: true,
         disabled: false
       },
@@ -21,20 +21,18 @@ describe('AButton.vue', () => {
         default: 'I am btn'
       }
     })
-    console.log('classed', wrapper.classes())
-
     expect(wrapper.find('button').exists())
     expect(wrapper.text()).toContain('I am btn')
-    // expect(wrapper.classes()).includes('a-raised')
-    // expect(wrapper.classes()).includes('a-outlined')
-    // expect(wrapper.classes()).includes('a-rounded')
-    // expect(wrapper.classes()).includes('a-flat')
-    // expect(wrapper.classes()).includes('a-text')
-    // expect(wrapper.classes()).includes('a-icon')
-    // expect(wrapper.classes()).includes('a-loading')
-    // expect(wrapper.classes()).includes('a-block')
-    // expect(wrapper.classes()).includes('a-primary')
-    expect(wrapper.attributes().disabled).toBeUndefined()
+    expect(wrapper.classes()).includes('a-raised')
+    expect(wrapper.classes()).includes('a-outlined')
+    expect(wrapper.classes()).includes('a-rounded')
+    expect(wrapper.classes()).includes('a-flat')
+    expect(wrapper.classes()).includes('a-text')
+    expect(wrapper.classes()).includes('a-icon')
+    expect(wrapper.classes()).includes('a-loading')
+    expect(wrapper.classes()).includes('a-block')
+    expect(wrapper.classes()).includes('a-primary')
+    expect(wrapper.attributes()).not.haveOwnProperty('disabled')
   })
 
   it('Should be interactive', async () => {

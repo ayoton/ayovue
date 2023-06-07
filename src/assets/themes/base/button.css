@@ -1,0 +1,51 @@
+@import url('./loader.css');
+.a-button {
+  outline: 0 solid var(--a-c-theme-200);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+
+  &:focus {
+    z-index: 1;
+  }
+
+  &.a-block {
+    width: 100%;
+  }
+
+  &.a-text {
+    border: none;
+  }
+
+  &.a-rounded {
+    border-radius: 10em;
+  }
+
+  &.a-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 1em;
+    aspect-ratio: 1/1;
+  }
+
+  &.a-icon > svg {
+    width: 1em;
+    height: 1em;
+  }
+
+  &.a-flat {
+    border-radius: 0;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  @media (hover: none) {
+    cursor: default;
+  }
+}

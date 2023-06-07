@@ -4,6 +4,7 @@ import { AButton } from '.'
 
 <template>
   <div>
-    <AButton>Button</AButton>
+    <AButton loading icon>Button</AButton>
+    <AButton loading>Button</AButton>
   </div>
 </template>
