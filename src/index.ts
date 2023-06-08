@@ -1,2 +1,3 @@
 import AButton from "./components/AButton/index";
-export { AButton };
+import AInput from "./components/AInput/index";
+export { AButton, AInput };
