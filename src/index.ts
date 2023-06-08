@@ -1,2 +1,3 @@
 import AButton from "./components/AButton/index";
-export { AButton };
+import AButtonGroup from "./components/AButtonGroup/index";
+export { AButton, AButtonGroup };

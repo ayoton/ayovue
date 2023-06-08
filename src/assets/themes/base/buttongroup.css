@@ -1,0 +1,40 @@
+.a-button-group {
+  display: inline-flex;
+  vertical-align: middle;
+  flex-wrap: wrap;
+  border-radius: 0.2em;
+  &.a-rounded,
+  &.a-rounded > .a-button {
+    border-radius: 10em;
+  }
+  &.a-flat,
+  &.a-flat > .a-button {
+    border-radius: 0;
+  }
+  > .a-button.a-block {
+    width: initial;
+  }
+  > .a-button {
+    font-size: 1em !important;
+    border-radius: 0.2em;
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+    &.a-raised {
+      box-shadow: none;
+    }
+    &:not(:focus):not(:last-child) {
+      border-right: none;
+    }
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+/**
+*/

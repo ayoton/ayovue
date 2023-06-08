@@ -49,11 +49,13 @@ const log = (e: Event) => {
 </script>
 
 <template>
-  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   <div>
     <div class="component-output">
       <component :is="comp" v-bind="vModels" @click="log">
-        {{ compMeta.slots.default }}
+        <template v-if="typeof compMeta.slots.default === 'string'">
+          {{ compMeta.slots.default }}
+        </template>
+        <component v-else :is="compMeta.slots.default"></component>
       </component>
     </div>
     <hr />
