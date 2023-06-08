@@ -43,18 +43,22 @@ const copyCode = () => {
   return
 }
 
-const log = (e: Event) => {
-  console.log(e)
-}
+const vModel = ref('')
 </script>
 
 <template>
-  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   <div>
-    <div class="component-output">
-      <component :is="comp" v-bind="vModels" @click="log">
-        {{ compMeta.slots.default }}
-      </component>
+    <div class="row component-output">
+      <div class="col">
+        <component :is="comp" v-bind="vModels" v-model="vModel">
+          {{ compMeta.slots.default }}
+        </component>
+      </div>
+
+      <div class="col pg-v-model">
+        vModel:
+        {{ vModel }}
+      </div>
     </div>
     <hr />
 
@@ -155,5 +159,13 @@ const log = (e: Event) => {
   position: absolute;
   right: 0.3em;
   top: 0.3em;
+}
+
+.component-output {
+  align-items: center;
+}
+
+.pg-v-model {
+  padding-left: 22px;
 }
 </style>

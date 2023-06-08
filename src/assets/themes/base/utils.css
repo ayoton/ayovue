@@ -1,0 +1,11 @@
+.a-action-btn {
+  font-size: var(--font-size);
+  opacity: 0.6;
+  transition: all 0.2s linear;
+  z-index: 1;
+}
+
+.a-action-btn:not(:disabled):hover {
+  opacity: 1;
+  cursor: pointer;
+}
