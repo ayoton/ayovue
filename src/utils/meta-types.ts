@@ -19,6 +19,7 @@ interface APropType {
   default?: any
   enums?: any[]
   conditionalDescription?: string
+  nonpg?: boolean
 }
 
 interface AProps {
