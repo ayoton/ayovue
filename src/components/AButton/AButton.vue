@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { variantProp, sizeProp, booleanProp } from '../proptypes/'
+import { vRipple } from '../../directives/vRipple'
 
 const props = defineProps({
   variant: variantProp,
@@ -36,7 +37,7 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <button :class="classes" :style="{ 'font-size': `${size}px` }" type="button">
+  <button :class="classes" :style="{ 'font-size': `${size}px` }" type="button" v-ripple>
     <slot />
   </button>
 </template>

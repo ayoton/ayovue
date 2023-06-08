@@ -13,7 +13,6 @@
   }
 
   &:active {
-    transform: scale(0.95);
     outline: 0 solid var(--a-c-theme-200);
   }
   &:focus {
