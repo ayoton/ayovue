@@ -6,7 +6,7 @@
   border: 1px solid var(--a-c-theme-600);
   padding: 0 1em;
   transition: all 0.1s ease;
-  height: 2.2em;
+  height: 2.25em;
 
   &:hover {
     background: var(--a-c-theme-500);

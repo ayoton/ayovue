@@ -21,7 +21,7 @@ const props = defineProps({
   variant: variantProp,
   clearable: booleanProp,
   placeholder: stringProp,
-  isDisabled: booleanProp,
+  disabled: booleanProp,
   name: nameProp,
   class: stringProp
 })
@@ -53,7 +53,8 @@ const classes = computed(() => {
     [props.class]: true,
     'a-input': true,
     [`a-${props.variant}`]: true,
-    'a-input-is-floating': isFloating.value
+    'a-input-is-floating': isFloating.value,
+    'a-disabled': props.disabled
   }
 })
 
@@ -86,7 +87,7 @@ defineExpose({
 })
 </script>
 <template>
-  <div :class="classes" ref="inputParentEl" :style="{ '--a-font-size': `${size || 16}px` }">
+  <div :class="classes" ref="inputParentEl" :style="{ fontSize: `${size || 16}px` }">
     <span class="a-fl-label" v-if="floatingLabel" :style="floatingStyle">
       {{ floatingLabel }}
     </span>
@@ -99,7 +100,7 @@ defineExpose({
       class="a-input-field"
       :placeholder="placeholder"
       v-model="localValue"
-      :disabled="isDisabled"
+      :disabled="disabled"
       autocomplete="off"
       :name="name"
       v-bind="$attrs"
@@ -107,6 +108,7 @@ defineExpose({
     <slot name="append"></slot>
 
     <button
+      :disabled="disabled"
       class="a-icon-close a-action-btn"
       v-if="clearable && modelValue"
       @click="clearValue"
