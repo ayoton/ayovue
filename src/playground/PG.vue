@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ref, shallowReactive } from 'vue'
+import { AButton } from '..'
 
 const props = defineProps({
   comp: { type: Object, default: () => ({}) },
@@ -41,12 +42,17 @@ const copyCode = () => {
   navigator.clipboard.writeText(codeBlock.value?.innerText || '')
   return
 }
+
+const log = (e: Event) => {
+  console.log(e)
+}
 </script>
 
 <template>
+  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   <div>
     <div class="component-output">
-      <component :is="comp" v-bind="vModels">
+      <component :is="comp" v-bind="vModels" @click="log">
         {{ compMeta.slots.default }}
       </component>
     </div>
@@ -83,18 +89,18 @@ const copyCode = () => {
       </div>
     </div>
     <div class="gen-code">
-      <button @click="copyCode" class="copy-btn a-button">Copy</button>
+      <AButton @click="copyCode" class="copy-btn">Copy</AButton>
       <div class="pg-code" ref="codeBlock">
         <span class="symb">&lt;</span><span class="tag-name">{{ compMeta.name }}</span>
         <!-- all props -->
         <template v-for="(val, key) in vModels" :key="key">
           <!-- {{ key }} -->
-          <template v-if="booleanProps.includes(key)">
+          <template v-if="booleanProps.includes(key as any)">
             <span v-if="val" class="prop-name">&nbsp;&nbsp;{{ key }}</span>
           </template>
           <template v-else-if="propsMeta[key].default !== val && val !== ''">
             <span class="prop-name"
-              >&nbsp;&nbsp;<span v-if="numberProps.includes(key)">:</span>{{ key
+              >&nbsp;&nbsp;<span v-if="numberProps.includes(key as any)">:</span>{{ key
               }}<span class="code-eq">=</span><span class="code-val">"{{ val }}"</span></span
             >
           </template>
