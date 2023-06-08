@@ -51,7 +51,10 @@ const vModel = ref('')
     <div class="row component-output">
       <div class="col">
         <component :is="comp" v-bind="vModels" v-model="vModel">
-          {{ compMeta.slots.default }}
+          <template v-if="typeof compMeta.slots.default === 'string'">
+            {{ compMeta.slots.default }}
+          </template>
+          <component v-else :is="compMeta.slots.default"></component>
         </component>
       </div>
 
