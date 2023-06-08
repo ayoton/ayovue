@@ -1,0 +1,46 @@
+.a-input {
+  display: flex;
+  position: relative;
+  align-items: center;
+  /* width: 100%; */
+}
+.a-input-field {
+  flex-grow: 1;
+  outline: none;
+  border: none;
+  font-size: var(--a-font-size, 16px);
+  background: transparent;
+  width: 100%;
+  z-index: 1;
+  line-height: 1;
+}
+
+.a-input-field:disabled {
+  opacity: 0.5;
+}
+
+.a-fl-label ~ .a-input-field::placeholder {
+  opacity: 1;
+  transition: all 0.3s linear;
+}
+.a-fl-label ~ .a-input-field:not(:focus)::placeholder {
+  opacity: 0;
+}
+.a-input > .a-fl-label {
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  font-size: var(--a-font-size, 16px);
+  line-height: normal;
+  letter-spacing: normal;
+  display: flex;
+  align-items: center;
+}
+
+.a-placeholder {
+  line-height: 1;
+}
+
+/* .a-input-field::-webkit-slider-thumb,
+.a-input-field::-moz-range-thumb {
+  height: 1em;
+} */
