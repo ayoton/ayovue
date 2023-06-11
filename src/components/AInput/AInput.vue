@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import { computed } from '@vue/reactivity'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import {
   inputTypeProp,
   sizeProp,
@@ -48,15 +47,6 @@ const floatingStyle = computed(() => {
     } as any
   }
 })
-const classes = computed(() => {
-  return {
-    [props.class]: true,
-    'a-input': true,
-    [`a-${props.variant}`]: true,
-    'a-input-is-floating': isFloating.value,
-    'a-disabled': props.disabled
-  }
-})
 
 function clearValue() {
   emit('update:modelValue', '')
@@ -87,7 +77,15 @@ defineExpose({
 })
 </script>
 <template>
-  <div :class="classes" ref="inputParentEl" :style="{ fontSize: `${size || 16}px` }">
+  <div
+    :class="{
+      'a-input': true,
+      [`a-${variant}`]: true,
+      'a-input-is-floating': isFloating
+    }"
+    ref="inputParentEl"
+    :style="{ fontSize: `${size || 16}px` }"
+  >
     <span class="a-fl-label" v-if="floatingLabel" :style="floatingStyle">
       {{ floatingLabel }}
     </span>
@@ -108,7 +106,6 @@ defineExpose({
     <slot name="append"></slot>
 
     <button
-      :disabled="disabled"
       class="a-icon-close a-action-btn"
       v-if="clearable && modelValue"
       @click="clearValue"
