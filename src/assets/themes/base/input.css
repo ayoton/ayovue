@@ -3,7 +3,6 @@
   position: relative;
   align-items: center;
   /* width: 100%; */
-
   & .a-input-field {
     flex-grow: 1;
     outline: none;
@@ -14,11 +13,6 @@
     line-height: 1;
     font-size: inherit;
   }
-
-  & .a-input-field:disabled {
-    opacity: 0.5;
-  }
-
   & .a-fl-label ~ .a-input-field::placeholder {
     opacity: 1;
     transition: all 0.3s linear;
@@ -36,9 +30,18 @@
     display: flex;
     align-items: center;
   }
+  &.a-input-is-floating > .a-fl-label {
+    opacity: 1;
+    backdrop-filter: blur(2em);
+    padding: 0 0.2em;
+  }
 
   & .a-placeholder {
     line-height: 1;
+  }
+  &:has(input:disabled) {
+    opacity: 0.5;
+    pointer-events: none;
   }
 }
 
