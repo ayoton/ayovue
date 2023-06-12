@@ -39,18 +39,17 @@ export default defineConfig({
         text: 'Introduction',
         collapsed: true,
         items: [
-          { text: 'Introduction', link: '/docs/intro' },
-          { text: 'docs folder', link: 'docs/' },
-          { text: 'ex link', link: 'http://liton.info' }
+          { text: 'Installation', link: '/docs/intro' }
+          // { text: 'docs folder', link: 'docs/' },
+          // { text: 'ex link', link: 'http://liton.info' }
         ]
       },
       {
-        text: 'Section Title A',
+        text: 'Components',
         collapsed: true,
         items: [
-          { text: 'liton in docs', link: '/docs/liton.md' },
-          { text: 'Home', link: '/docs/home' },
-          { text: 'Item B', link: 'docs/item-b' }
+          { text: 'Button', link: '/docs/button.md' },
+          { text: 'Input Field', link: '/docs/input.md' }
         ]
       },
       {

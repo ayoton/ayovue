@@ -1,62 +1,17 @@
 ---
-title: liton title
-lang: bn-BD
+title: Introduction
+lang: en-US
+layout: docs
 ---
 
-## GitHub-Style Tables
+# Introduction
 
-| name   | id  | age  |
-| ------ | --- | ---- |
-| liton  | 1   | 35   |
-| liton2 | 2   | 36\| |
+Ayovue is a progressive vue components library with a comprehensive collection of reusable rich UI components designed to simplify and accelerate your web development process.
 
-# hello :100: :smile: smile
+## Installation
 
-Text that is not a quote
+To install ayovue on your project run the following npm command.
 
-> Text that is a quote
-
-## Custom Containers
-
-::: info
-This is an info box.
-:::
-
-::: tip Tips
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger are you sure?
-
-```js
-alert(This is a details block.);
+```npm
+npm i ayovue
 ```
-
-This is a dangerous warning.
-:::
-
-::: details Faq
-
-::: danger are you sure?
-This is a dangerous warning.
-:::
-
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
-```
-
-## Our Team 2hash
-
-# Our Team 1hash
-
-<h1>Our Team h1</h1>

@@ -63,6 +63,6 @@ export const AInputMeta: AComponentMeta = {
     }
   },
   slots: {
-    default: 'Click me'
+    default: ''
   }
 }
