@@ -49,6 +49,7 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Button', link: '/docs/button.md' },
+          { text: 'Button Group', link: '/docs/button-group.md' },
           { text: 'Input Field', link: '/docs/input.md' }
         ]
       },

@@ -120,13 +120,20 @@ const copy = ref('copy')
             >
           </template>
         </template>
+        <span v-if="!$slots.default && !compMeta.slots?.default">/</span>
         <span class="symb">&gt;</span>
         <!-- Slots -->
-        <div class="pg-text" v-if="typeof compMeta.slots?.default === 'string'">
-          &nbsp;&nbsp;{{ compMeta.slots.default }}
-        </div>
-        <span class="symb">&lt;/</span><span class="tag-name">{{ compMeta.name }}</span
-        ><span class="symb">&gt;</span>
+        <template style="padding-left: 8px" v-if="$slots.default || compMeta.slots?.default">
+          <slot
+            ><div class="pg-text" v-if="typeof compMeta.slots?.default === 'string'">
+              &nbsp;&nbsp;{{ compMeta.slots.default }}
+            </div></slot
+          >
+        </template>
+        <template v-if="$slots.default || compMeta.slots?.default">
+          <span class="symb">&lt;/</span><span class="tag-name">{{ compMeta.name }}</span
+          ><span class="symb">&gt;</span></template
+        >
       </div>
     </div>
   </div>
@@ -146,9 +153,10 @@ const copy = ref('copy')
 }
 .pg-code {
   font-size: 14px;
+  white-space: pre;
   border: 1px solid green;
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-  background: #242424;
+  background: var(--vp-code-block-bg);
   margin: 1rem 0;
   padding: 1rem;
 }
