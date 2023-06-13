@@ -4,7 +4,11 @@ import { AButton } from '..'
 
 const props = defineProps({
   comp: { type: Object, default: () => ({}) },
-  compMeta: { type: Object, default: () => ({}) }
+  compMeta: { type: Object, default: () => ({}) },
+  modelVar: {
+    type: String,
+    default: ''
+  }
 })
 
 // eslint-disable-next-line vue/no-setup-props-destructure
@@ -48,7 +52,17 @@ const vModel = ref('')
 
 <template>
   <div>
-    <div class="row component-output">
+    <slot :vModels="vModels">
+      <div>
+        <component :is="comp" v-bind="vModels" v-model="vModel">
+          <template v-if="typeof compMeta.slots.default === 'string'">
+            {{ compMeta.slots.default }}
+          </template>
+          <component v-else :is="compMeta.slots.default"></component>
+        </component>
+      </div>
+    </slot>
+    <!-- <div class="row component-output">
       <div class="col">
         <component :is="comp" v-bind="vModels" v-model="vModel">
           <template v-if="typeof compMeta.slots.default === 'string'">
@@ -62,7 +76,7 @@ const vModel = ref('')
         vModel:
         {{ vModel }}
       </div>
-    </div>
+    </div> -->
     <hr />
 
     <div class="row">
@@ -112,10 +126,20 @@ const vModel = ref('')
             >
           </template>
         </template>
+        <template v-if="modelVar">
+          <span class="prop-name"
+            >&nbsp;&nbsp;v-model<span class="code-eq">=</span
+            ><span class="code-val">"{{ modelVar }}"</span></span
+          >
+        </template>
+        <span v-if="!$slots.code" class="symb"> /</span>
         <span class="symb">&gt;</span>
         <!-- Slots -->
-        <span class="symb">&lt;/</span><span class="tag-name">{{ compMeta.name }}</span
-        ><span class="symb">&gt;</span>
+        <template v-if="$slots.code">
+          <slot name="code" />
+          <span class="symb">&lt;/</span><span class="tag-name">{{ compMeta.name }}</span
+          ><span class="symb">&gt;</span>
+        </template>
       </div>
     </div>
   </div>
