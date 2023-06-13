@@ -5,7 +5,7 @@ layout: docs
 ---
 
 <script setup lang="ts">
-import { AButtonGroup} from '../../src/'
+import { AButtonGroup, AButton} from '../../src/'
 import { AButtonGroupMeta } from '../../src/components/AButtonGroup/AButtonGroup.meta'
 import PG from '../../src/playground/PG.vue'
 </script>
@@ -20,7 +20,19 @@ The <code>AButtonGroup</code> component is used to create a group of buttons.
 
   <div>
     <PG :comp="AButtonGroup" :comp-meta="AButtonGroupMeta">
-    <span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;"> </span><span style="color:#C792EA;">variant</span><span style="color:#89DDFF;">=</span><span style="color:#89DDFF;">"</span><span style="color:#C3E88D;">info</span><span style="color:#89DDFF;">"</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;">Button 1</span><span style="color:#89DDFF;">&lt;/</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span></span>
+    <template #default="{vModels}">
+      <AButtonGroup v-bind="vModels">
+        <AButton>button 1</AButton>
+        <AButton>button 2</AButton>
+        <AButton>button 3</AButton>
+        <AButton>button 4</AButton>
+      </AButtonGroup>
+    </template>
+    <template #code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;">button 1</span><span style="color:#89DDFF;">&lt;/</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;">button 2</span><span style="color:#89DDFF;">&lt;/</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;">button 3</span><span style="color:#89DDFF;">&lt;/</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span></span>
+<span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;">button 4</span><span style="color:#89DDFF;">&lt;/</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span></span>
+    </template>
     </PG>
   </div>
 

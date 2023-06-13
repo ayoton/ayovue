@@ -44,10 +44,18 @@ const codeBlock = ref<HTMLDivElement>()
 
 const copyCode = () => {
   navigator.clipboard.writeText(codeBlock.value?.innerText || '')
+  copy.value = '&check; copied'
+  copytext()
   return
+}
+const copytext = () => {
+  setTimeout(() => {
+    copy.value = 'copy'
+  }, 2000)
 }
 
 const vModel = ref('')
+const copy = ref('copy')
 </script>
 
 <template>
@@ -80,28 +88,28 @@ const vModel = ref('')
     <hr />
 
     <div class="row">
-      <div class="col">
+      <div class="col pb">
         <div v-for="bp in booleanProps" :key="bp">
           <label> <input type="checkbox" v-model="vModels[bp]" /> {{ bp }} </label>
         </div>
       </div>
       <div class="col">
-        <div v-for="sp in stringProps" :key="sp">
+        <div v-for="sp in stringProps" :key="sp" class="pb">
           <div>{{ sp }}</div>
           <input type="text" v-model="vModels[sp]" />
         </div>
       </div>
       <div class="col">
-        <div v-for="np in numberProps" :key="np">
+        <div v-for="np in numberProps" :key="np" class="pb">
           <div>{{ np }}</div>
           <input type="number" v-model="vModels[np]" />
         </div>
       </div>
 
       <div class="col">
-        <div v-for="ep in enumProps" :key="ep">
+        <div v-for="ep in enumProps" :key="ep" class="pb">
           <div>{{ ep }}</div>
-          <select v-model="vModels[ep]">
+          <select v-model="vModels[ep]" class="prop-select">
             <option v-for="op in propsMeta[ep].type" :key="op">
               {{ op }}
             </option>
@@ -110,7 +118,7 @@ const vModel = ref('')
       </div>
     </div>
     <div class="gen-code">
-      <AButton @click="copyCode" class="copy-btn">Copy</AButton>
+      <AButton @click="copyCode" class="copy-btn" v-html="copy"></AButton>
       <div class="pg-code" ref="codeBlock">
         <span class="symb">&lt;</span><span class="tag-name">{{ compMeta.name }}</span>
         <!-- all props -->
@@ -132,11 +140,18 @@ const vModel = ref('')
             ><span class="code-val">"{{ modelVar }}"</span></span
           >
         </template>
-        <span v-if="!$slots.code" class="symb"> /</span>
+        <span v-if="!$slots.code && !compMeta.slots?.default" class="symb"> /</span>
         <span class="symb">&gt;</span>
         <!-- Slots -->
-        <template v-if="$slots.code">
-          <slot name="code" />
+        <template v-if="$slots.code || compMeta.slots?.default">
+          <slot name="code">
+            <span
+              style="color: #a6accd"
+              v-if="compMeta.slots?.default && typeof compMeta.slots?.default === 'string'"
+            >
+              {{ compMeta.slots?.default }}
+            </span>
+          </slot>
           <span class="symb">&lt;/</span><span class="tag-name">{{ compMeta.name }}</span
           ><span class="symb">&gt;</span>
         </template>
@@ -195,5 +210,28 @@ const vModel = ref('')
 
 .pg-v-model {
   padding-left: 22px;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  appearance: auto;
+}
+
+input[type='text'],
+input[type='number'] {
+  appearance: auto;
+  border: 1px solid #e0e0e0;
+  padding: 3px 5px;
+}
+
+.prop-select {
+  appearance: auto;
+  border: 1px solid #e0e0e0;
+  padding: 6px 8px;
+}
+.pg-text {
+  color: #a6accd;
+}
+.pb {
+  padding-bottom: 5px;
 }
 </style>
