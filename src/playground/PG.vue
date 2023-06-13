@@ -4,7 +4,11 @@ import { AButton } from '..'
 
 const props = defineProps({
   comp: { type: Object, default: () => ({}) },
-  compMeta: { type: Object, default: () => ({}) }
+  compMeta: { type: Object, default: () => ({}) },
+  modelVar: {
+    type: String,
+    default: ''
+  }
 })
 
 // eslint-disable-next-line vue/no-setup-props-destructure
@@ -40,23 +44,25 @@ const codeBlock = ref<HTMLDivElement>()
 
 const copyCode = () => {
   navigator.clipboard.writeText(codeBlock.value?.innerText || '')
-  copy.value = '&check; copied'
-  copytext()
   return
-}
-const copytext = () => {
-  setTimeout(() => {
-    copy.value = 'copy'
-  }, 2000)
 }
 
 const vModel = ref('')
-const copy = ref('copy')
 </script>
 
 <template>
   <div>
-    <div class="row component-output">
+    <slot :vModels="vModels">
+      <div>
+        <component :is="comp" v-bind="vModels" v-model="vModel">
+          <template v-if="typeof compMeta.slots.default === 'string'">
+            {{ compMeta.slots.default }}
+          </template>
+          <component v-else :is="compMeta.slots.default"></component>
+        </component>
+      </div>
+    </slot>
+    <!-- <div class="row component-output">
       <div class="col">
         <component :is="comp" v-bind="vModels" v-model="vModel">
           <template v-if="typeof compMeta.slots.default === 'string'">
@@ -70,32 +76,32 @@ const copy = ref('copy')
         vModel:
         {{ vModel }}
       </div>
-    </div>
+    </div> -->
     <hr />
 
     <div class="row">
       <div class="col">
-        <div v-for="bp in booleanProps" :key="bp" class="pb">
+        <div v-for="bp in booleanProps" :key="bp">
           <label> <input type="checkbox" v-model="vModels[bp]" /> {{ bp }} </label>
         </div>
       </div>
       <div class="col">
-        <div v-for="sp in stringProps" :key="sp" class="pb">
+        <div v-for="sp in stringProps" :key="sp">
           <div>{{ sp }}</div>
           <input type="text" v-model="vModels[sp]" />
         </div>
       </div>
       <div class="col">
-        <div v-for="np in numberProps" :key="np" class="pb">
+        <div v-for="np in numberProps" :key="np">
           <div>{{ np }}</div>
           <input type="number" v-model="vModels[np]" />
         </div>
       </div>
 
       <div class="col">
-        <div v-for="ep in enumProps" :key="ep" class="pb">
+        <div v-for="ep in enumProps" :key="ep">
           <div>{{ ep }}</div>
-          <select v-model="vModels[ep]" class="prop-select">
+          <select v-model="vModels[ep]">
             <option v-for="op in propsMeta[ep].type" :key="op">
               {{ op }}
             </option>
@@ -104,7 +110,7 @@ const copy = ref('copy')
       </div>
     </div>
     <div class="gen-code">
-      <AButton @click="copyCode" class="copy-btn" v-html="copy"></AButton>
+      <AButton @click="copyCode" class="copy-btn">Copy</AButton>
       <div class="pg-code" ref="codeBlock">
         <span class="symb">&lt;</span><span class="tag-name">{{ compMeta.name }}</span>
         <!-- all props -->
@@ -120,20 +126,20 @@ const copy = ref('copy')
             >
           </template>
         </template>
-        <span v-if="!$slots.default && !compMeta.slots?.default">/</span>
-        <span class="symb">&gt;</span>
-        <!-- Slots -->
-        <template style="padding-left: 8px" v-if="$slots.default || compMeta.slots?.default">
-          <slot
-            ><div class="pg-text" v-if="typeof compMeta.slots?.default === 'string'">
-              &nbsp;&nbsp;{{ compMeta.slots.default }}
-            </div></slot
+        <template v-if="modelVar">
+          <span class="prop-name"
+            >&nbsp;&nbsp;v-model<span class="code-eq">=</span
+            ><span class="code-val">"{{ modelVar }}"</span></span
           >
         </template>
-        <template v-if="$slots.default || compMeta.slots?.default">
+        <span v-if="!$slots.code" class="symb"> /</span>
+        <span class="symb">&gt;</span>
+        <!-- Slots -->
+        <template v-if="$slots.code">
+          <slot name="code" />
           <span class="symb">&lt;/</span><span class="tag-name">{{ compMeta.name }}</span
-          ><span class="symb">&gt;</span></template
-        >
+          ><span class="symb">&gt;</span>
+        </template>
       </div>
     </div>
   </div>
@@ -148,8 +154,6 @@ const copy = ref('copy')
 .col {
   flex: 1;
   min-width: 222px;
-  padding-bottom: 10px;
-  padding-right: 5px;
 }
 .pg-code {
   font-size: 14px;
@@ -191,28 +195,5 @@ const copy = ref('copy')
 
 .pg-v-model {
   padding-left: 22px;
-}
-
-input[type='number']::-webkit-inner-spin-button {
-  appearance: auto;
-}
-
-input[type='text'],
-input[type='number'] {
-  appearance: auto;
-  border: 1px solid #e0e0e0;
-  padding: 3px 5px;
-}
-
-.prop-select {
-  appearance: auto;
-  border: 1px solid #e0e0e0;
-  padding: 6px 8px;
-}
-.pg-text {
-  color: #a6accd;
-}
-.pb {
-  padding-bottom: 2px;
 }
 </style>
