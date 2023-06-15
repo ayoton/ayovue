@@ -22,6 +22,10 @@ const numberProps: string[] = []
 const enumProps: string[] = []
 
 for (const key in propsMeta) {
+  if (propsMeta[key].nonpg) {
+    continue
+  }
+
   if (propsMeta[key].type.name === 'Boolean') {
     booleanProps.push(key)
   } else if (propsMeta[key].type.name === 'String') {
