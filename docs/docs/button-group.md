@@ -23,9 +23,10 @@ The <code>AButtonGroup</code> component is used to create a group of buttons.
     <template #default="{vModels}">
       <AButtonGroup v-bind="vModels">
         <AButton>button 1</AButton>
-        <AButton>button 2</AButton>
-        <AButton>button 3</AButton>
-        <AButton>button 4</AButton>
+        <AButton variant="secondary">button 2</AButton>
+        <AButton variant="info">button 3</AButton>
+        <AButton variant="warning">button 4</AButton>
+        <AButton variant="danger">button 5</AButton>
       </AButtonGroup>
     </template>
     <template #code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;">button 1</span><span style="color:#89DDFF;">&lt;/</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span></span>

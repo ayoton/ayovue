@@ -10,7 +10,12 @@ defineProps({
 </script>
 <template>
   <div
-    :class="{ 'a-button-group': true, 'a-raised': raised, 'a-rounded': rounded, 'a-flat': flat }"
+    :class="{
+      'a-button-group': true,
+      'a-raised': raised,
+      'a-rounded': rounded,
+      'a-flat': flat
+    }"
     :style="{ fontSize: size + 'px' }"
   >
     <slot></slot>
