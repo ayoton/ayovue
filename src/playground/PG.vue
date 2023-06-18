@@ -58,12 +58,18 @@ const copytext = () => {
   }, 2000)
 }
 
-const vModel = ref('')
+const vModel: any = ref(props.compMeta.vModel)
 const copy = ref('copy')
+
+function handleSwitch() {
+  console.log('Handling...')
+  vModel.value = !vModel.value
+}
 </script>
 
 <template>
   <div>
+    <!-- <slot name="above" :handleSwitch="handleSwitch"> </slot> -->
     <slot :vModels="vModels">
       <div>
         <component :is="comp" v-bind="vModels" v-model="vModel">

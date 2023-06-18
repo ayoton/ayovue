@@ -1,7 +1,61 @@
 .a-action-btn {
+  cursor: pointer;
   font-size: var(--font-size);
   opacity: 0.6;
   transition: all 0.2s linear;
   z-index: 1;
-  cursor: pointer;
+}
+
+.a-action-btn:hover {
+  opacity: 1;
+}
+
+.a-rotated-180 {
+  transform: rotate(180deg);
+}
+
+/* Fade Transition animations */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2 linear;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transform-origin: top left;
+  transition: all 0.2s linear;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: scaleY(0.7);
+}
+
+/* Dialog transition animations */
+.dialog-enter-active,
+.dialog-leave-active {
+  transition: all 0.25s ease;
+  transform: scale(1);
+}
+
+.dialog-enter-active::backdrop,
+.dialog-leave-active::backdrop {
+  transition: all 0.25s ease;
+}
+
+.dialog-enter-from,
+.dialog-leave-to {
+  transform: scale(0.75);
+  opacity: 0;
+}
+
+.dialog-enter-from::backdrop,
+.dialog-leave-to::backdrop {
+  opacity: 0;
 }

@@ -1,0 +1,19 @@
+.a-dialog {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  & .a-dialog-header {
+    display: flex;
+    align-items: center;
+  }
+
+  & .a-dialog-title {
+    flex: 1;
+  }
+
+  & .a-dialog-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+}
