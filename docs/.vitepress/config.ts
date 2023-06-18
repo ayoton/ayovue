@@ -15,29 +15,13 @@ export default defineConfig({
     logo: '/ayovue.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/docs/intro' },
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Item A', link: '/item-1' },
-          { text: 'Item B', link: '/item-2' },
-          {
-            text: 'Section A Title',
-            items: [
-              { text: 'Section A Item A', link: '...' },
-
-              { text: 'Section B Item B', link: '...' }
-            ]
-          },
-          { text: 'Item C', link: '/item-3' }
-        ]
-      }
+      { text: 'Docs', link: '/docs/intro' }
     ],
 
     sidebar: [
       {
-        text: 'Introduction',
-        collapsed: true,
+        text: 'Getting Started',
+        collapsed: false,
         items: [
           { text: 'Installation', link: '/docs/intro' }
           // { text: 'docs folder', link: 'docs/' },
@@ -46,31 +30,11 @@ export default defineConfig({
       },
       {
         text: 'Components',
-        collapsed: true,
+        collapsed: false,
         items: [
           { text: 'Button', link: '/docs/button.md' },
           { text: 'Button Group', link: '/docs/button-group.md' },
           { text: 'Input Field', link: '/docs/input.md' }
-        ]
-      },
-      {
-        text: 'Level 1',
-        collapsed: true,
-        items: [
-          {
-            text: 'Level 2',
-            items: [
-              { text: 'Item A', link: '/item-a' },
-              {
-                text: 'Level 3',
-                items: [
-                  { text: 'hello', link: '/hello' },
-                  { text: 'Item A', link: '/item-a' }
-                ]
-              }
-            ]
-          },
-          { text: 'Item A', link: '/item-a' }
         ]
       }
     ],
