@@ -11,6 +11,8 @@ const props = defineProps({
   }
 })
 
+const copied = ref(false)
+
 // eslint-disable-next-line vue/no-setup-props-destructure
 const propsMeta: any = props.compMeta.props
 
@@ -48,8 +50,10 @@ const codeBlock = ref<HTMLDivElement>()
 
 const copyCode = () => {
   navigator.clipboard.writeText(codeBlock.value?.innerText || '')
-  copy.value = '&check; copied'
-  copytext()
+  copied.value = true
+  setTimeout(() => {
+    copied.value = false
+  }, 2000)
   return
 }
 const copytext = () => {
@@ -122,7 +126,10 @@ function handleSwitch() {
       </div>
     </div>
     <div class="gen-code">
-      <AButton @click="copyCode" class="copy-btn" v-html="copy"></AButton>
+      <AButton @click="copyCode" class="copy-btn" :disabled="copied">
+        <template v-if="copied">&check; copied</template>
+        <template v-else>copy</template>
+      </AButton>
       <div class="pg-code" ref="codeBlock">
         <span class="symb">&lt;</span><span class="tag-name">{{ compMeta.name }}</span>
         <!-- all props -->
