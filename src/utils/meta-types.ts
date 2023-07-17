@@ -32,3 +32,4 @@ export interface AComponentMeta {
   props?: AProps
   slots?: SlotDictionary
 }
+export const variantType = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', '']

@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { AButton, AInput } from '.'
-import { AInputMeta } from './components/AInput/AInput.meta'
-import { AButtonMeta } from './components/AButton/AButton.meta'
+import { ARadio } from '.'
+import { ARadioMeta } from './components/ARadio/ARadio.meta'
 import PG from './playground/PG.vue'
 </script>
 
@@ -11,6 +10,10 @@ import PG from './playground/PG.vue'
     <AButton loading>Button</AButton> -->
     <hr />
     <!-- <PG :comp="AButton" :comp-meta="AButtonMeta"></PG> -->
-    <PG :comp="AInput" :comp-meta="AInputMeta"></PG>
+    <PG :comp="ARadio" :comp-meta="ARadioMeta">
+      <template #default="{ vModels }">
+        <ARadio v-bind="vModels" />
+      </template>
+    </PG>
   </div>
 </template>
