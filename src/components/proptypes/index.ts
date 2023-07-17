@@ -130,3 +130,8 @@ export const optionValueProp = {
   type: String,
   default: 'value'
 }
+
+export const aspectRatioProp = {
+  type: String,
+  default: '1/1'
+}

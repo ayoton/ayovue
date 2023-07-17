@@ -23,9 +23,10 @@ The <code>AButtonGroup</code> component is used to create a group of buttons.
     <template #default="{vModels}">
       <AButtonGroup v-bind="vModels">
         <AButton>button 1</AButton>
-        <AButton>button 2</AButton>
-        <AButton>button 3</AButton>
-        <AButton>button 4</AButton>
+        <AButton variant="secondary">button 2</AButton>
+        <AButton variant="info">button 3</AButton>
+        <AButton variant="warning">button 4</AButton>
+        <AButton variant="danger">button 5</AButton>
       </AButtonGroup>
     </template>
     <template #code><span class="line"><span style="color:#89DDFF;">&lt;</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span><span style="color:#A6ACCD;">button 1</span><span style="color:#89DDFF;">&lt;/</span><span style="color:#FFCB6B;">AButton</span><span style="color:#89DDFF;">&gt;</span></span>
@@ -40,19 +41,16 @@ The <code>AButtonGroup</code> component is used to create a group of buttons.
 
 Button Group component has the following props.
 
-| Prop name | Type    | Required | Default value | Details                                              |
-| --------- | ------- | -------- | ------------- | ---------------------------------------------------- |
-| outlined  | Boolean | No       | false         | Add a border class without a background initially.   |
-| raised    | Boolean | No       | false         | Add a shadow to indicate elevation.                  |
-| rounded   | Boolean | No       | false         | Add a circular border radius to the button group.    |
-| flat      | Boolean | No       | false         | Remove border radius.                                |
-| text      | Boolean | No       | false         | Show button as text without a background and border. |
-| block     | Boolean | No       | false         | Show button with 100% width                          |
-| size      | Number  | No       | 16            | Defines the size of the button.                      |
+| Prop name | Type    | Required | Default value | Details                                           |
+| --------- | ------- | -------- | ------------- | ------------------------------------------------- |
+| raised    | Boolean | No       | false         | Add a shadow to indicate elevation.               |
+| rounded   | Boolean | No       | false         | Add a circular border radius to the button group. |
+| flat      | Boolean | No       | false         | Remove border radius.                             |
+| size      | Number  | No       | 16            | Defines the size of the button.                   |
 
 ## Slots
 
-Button component has the following slots.
+Button Group component has the following slots.
 
 | Slot name | Description                      | Props |
 | --------- | -------------------------------- | ----- |

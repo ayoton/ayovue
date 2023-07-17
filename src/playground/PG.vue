@@ -11,6 +11,8 @@ const props = defineProps({
   }
 })
 
+const copied = ref(false)
+
 // eslint-disable-next-line vue/no-setup-props-destructure
 const propsMeta: any = props.compMeta.props
 
@@ -22,6 +24,10 @@ const numberProps: string[] = []
 const enumProps: string[] = []
 
 for (const key in propsMeta) {
+  if (propsMeta[key].nonpg) {
+    continue
+  }
+
   if (propsMeta[key].type.name === 'Boolean') {
     booleanProps.push(key)
   } else if (propsMeta[key].type.name === 'String') {
@@ -44,8 +50,10 @@ const codeBlock = ref<HTMLDivElement>()
 
 const copyCode = () => {
   navigator.clipboard.writeText(codeBlock.value?.innerText || '')
-  copy.value = '&check; copied'
-  copytext()
+  copied.value = true
+  setTimeout(() => {
+    copied.value = false
+  }, 2000)
   return
 }
 const copytext = () => {
@@ -54,12 +62,18 @@ const copytext = () => {
   }, 2000)
 }
 
-const vModel = ref('')
+const vModel: any = ref(props.compMeta.vModel)
 const copy = ref('copy')
+
+function handleSwitch() {
+  console.log('Handling...')
+  vModel.value = !vModel.value
+}
 </script>
 
 <template>
   <div>
+    <!-- <slot name="above" :handleSwitch="handleSwitch"> </slot> -->
     <slot :vModels="vModels">
       <div>
         <component :is="comp" v-bind="vModels" v-model="vModel">
@@ -87,38 +101,35 @@ const copy = ref('copy')
     </div> -->
     <hr />
 
-    <div class="row">
-      <div class="col pb">
-        <div v-for="bp in booleanProps" :key="bp">
-          <label> <input type="checkbox" v-model="vModels[bp]" /> {{ bp }} </label>
-        </div>
-      </div>
-      <div class="col">
-        <div v-for="sp in stringProps" :key="sp" class="pb">
-          <div>{{ sp }}</div>
-          <input type="text" v-model="vModels[sp]" />
-        </div>
-      </div>
-      <div class="col">
-        <div v-for="np in numberProps" :key="np" class="pb">
-          <div>{{ np }}</div>
-          <input type="number" v-model="vModels[np]" />
-        </div>
+    <div class="props-group">
+      <div v-for="bp in booleanProps" :key="bp">
+        <label> <input type="checkbox" v-model="vModels[bp]" /> {{ bp }} </label>
       </div>
 
-      <div class="col">
-        <div v-for="ep in enumProps" :key="ep" class="pb">
-          <div>{{ ep }}</div>
-          <select v-model="vModels[ep]" class="prop-select">
-            <option v-for="op in propsMeta[ep].type" :key="op">
-              {{ op }}
-            </option>
-          </select>
-        </div>
+      <div v-for="ep in enumProps" :key="ep" class="pb">
+        <div>{{ ep }}</div>
+        <select v-model="vModels[ep]" class="prop-select">
+          <option v-for="op in propsMeta[ep].type" :key="op">
+            {{ op }}
+          </option>
+        </select>
+      </div>
+
+      <div v-for="sp in stringProps" :key="sp" class="pb">
+        <div>{{ sp }}</div>
+        <input type="text" v-model="vModels[sp]" />
+      </div>
+
+      <div v-for="np in numberProps" :key="np" class="pb">
+        <div>{{ np }}</div>
+        <input type="number" v-model="vModels[np]" />
       </div>
     </div>
     <div class="gen-code">
-      <AButton @click="copyCode" class="copy-btn" v-html="copy"></AButton>
+      <AButton @click="copyCode" class="copy-btn" :disabled="copied">
+        <template v-if="copied">&check; copied</template>
+        <template v-else>copy</template>
+      </AButton>
       <div class="pg-code" ref="codeBlock">
         <span class="symb">&lt;</span><span class="tag-name">{{ compMeta.name }}</span>
         <!-- all props -->
@@ -233,5 +244,16 @@ input[type='number'] {
 }
 .pb {
   padding-bottom: 5px;
+  break-inside: avoid-column;
+}
+
+.props-group {
+  column-count: 3;
+}
+
+@media screen and (max-width: 800px) {
+  .props-group {
+    column-count: 1;
+  }
 }
 </style>

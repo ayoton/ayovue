@@ -1,13 +1,13 @@
 import { mount } from '@vue/test-utils'
-import AButtonGroup from './AButtonGroup.vue'
+import ADialog from './ADialog.vue'
 
-describe('AButtonGroup.vue', () => {
+describe('ADialog.vue', () => {
   it('Should render', () => {
-    const wrapper = mount(AButtonGroup as any, {})
+    const wrapper = mount(ADialog as any, {})
     expect(wrapper.text()).toContain('')
   })
   it('Should be interactive', async () => {
-    const wrapper = mount(AButtonGroup as any, {})
+    const wrapper = mount(ADialog as any, {})
     await wrapper.setProps({})
     expect(wrapper.text()).toContain('')
   })

@@ -1,5 +1,7 @@
 import AButton from "./components/AButton/index";
 import AButtonGroup from "./components/AButtonGroup/index";
+import ADialog from "./components/ADialog/index";
 import AInput from "./components/AInput/index";
+import AInputFile from "./components/AInputFile/index";
 import ARadio from "./components/ARadio/index";
-export { AButton, AButtonGroup, AInput, ARadio };
+export { AButton, AButtonGroup, ADialog, AInput, AInputFile, ARadio };
