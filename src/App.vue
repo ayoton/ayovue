@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ARadio } from '.'
-import { ARadioMeta } from './components/ARadio/ARadio.meta'
+import { ACheckbox } from '.'
+import { ACheckboxMeta } from './components/ACheckbox/ACheckbox.meta'
 import PG from './playground/PG.vue'
 </script>
 
@@ -10,9 +10,9 @@ import PG from './playground/PG.vue'
     <AButton loading>Button</AButton> -->
     <hr />
     <!-- <PG :comp="AButton" :comp-meta="AButtonMeta"></PG> -->
-    <PG :comp="ARadio" :comp-meta="ARadioMeta">
+    <PG :comp="ACheckbox" :comp-meta="ACheckboxMeta">
       <template #default="{ vModels }">
-        <ARadio v-bind="vModels" />
+        <ACheckbox v-bind="vModels" />
       </template>
     </PG>
   </div>
