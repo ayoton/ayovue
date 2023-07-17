@@ -1,0 +1,11 @@
+@import url('../base/radio.css');
+.a-radio {
+  --color: var(--a-c-theme-600);
+  --bg-color: inherit;
+  --outline-color: var(--a-c-theme-300);
+  --non-checked-color: var(--a-c-gray-400);
+  --disabled-color: var(--a-c-theme-200);
+  --border-color: var(--color);
+  --hover-border-color: var(--a-c-theme-400);
+  --circle-size: 1.25em;
+}
