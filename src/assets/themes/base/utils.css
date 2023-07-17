@@ -59,3 +59,7 @@
 .dialog-leave-to::backdrop {
   opacity: 0;
 }
+
+.c-pointer {
+  cursor: pointer;
+}

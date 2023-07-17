@@ -5,8 +5,8 @@
   border-radius: 4px;
   padding: 0;
   &::backdrop {
-    background-color: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(1px);
+    background-color: rgba(127, 127, 127, 0.5);
+    backdrop-filter: blur(3px);
   }
 
   & .a-dialog-header {

@@ -1,0 +1,11 @@
+@import url('../base/checkbox.css');
+.a-labeled-checkbox {
+  --color: var(--a-c-theme-600, skyblue);
+  --bg-color: white;
+  --outline-color: var(--a-c-theme-300, lightblue);
+  --non-checked-color: var(--a-c-gray-300, gray);
+  --border-color: var(--color);
+  --hover-border-color: var(--a-c-theme-400, lightblue);
+  --checkbox-size: 1.25em;
+  --tick-size: 0.75em;
+}

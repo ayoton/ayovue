@@ -1,0 +1,81 @@
+.a-labeled-checkbox {
+  --color: #2980b9;
+  --bg-color: white;
+  --outline-color: #92c5e7;
+  --non-checked-color: #808080;
+  --border-color: var(--color);
+  --hover-border-color: #58a6da;
+  --checkbox-size: 1.25em;
+  --tick-size: 0.8em;
+  --text-size: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0.3em;
+  cursor: pointer;
+}
+.a-labeled-checkbox:has(.a-checkbox[type='checkbox']:disabled) {
+  cursor: default;
+}
+.a-labeled-checkbox > span {
+  font-size: var(--text-size);
+}
+.a-checkbox[type='checkbox']:not(.solid) {
+  --tick-color: var(--color);
+  --background-color: var(--bg-color);
+}
+.a-checkbox[type='checkbox'].solid {
+  --tick-color: var(--bg-color);
+  --background-color: var(--color);
+}
+.a-checkbox[type='checkbox'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--background-color);
+  margin: 0;
+  font: inherit;
+  color: var(--tick-color);
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+  border: 0.12em solid var(--color);
+  border-radius: 0.25em;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  place-content: center;
+  transition: 120ms all ease-in-out;
+  cursor: pointer;
+}
+.a-checkbox[type='checkbox'].rounded {
+  border-radius: 50%;
+}
+.a-checkbox[type='checkbox'].solid:not(:checked) {
+  background: var(--tick-color);
+}
+
+.a-checkbox[type='checkbox']::after {
+  content: '';
+  width: var(--tick-size);
+  height: var(--tick-size);
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: center;
+  box-shadow: inset 1em 1em var(--tick-color);
+  background-color: var(--tick-color);
+  transition: all 0.15s ease-in;
+}
+.a-checkbox[type='checkbox']:checked::after {
+  transform: scale(1);
+}
+.a-checkbox[type='checkbox']:focus {
+  outline: 3px solid var(--outline-color);
+}
+.a-checkbox[type='checkbox']:disabled {
+  opacity: 0.5;
+}
+.a-checkbox[type='checkbox']:not(:checked) {
+  border-color: var(--non-checked-color);
+}
+.a-checkbox[type='checkbox']:not(:checked):not(:disabled):hover {
+  border-color: var(--hover-border-color);
+}

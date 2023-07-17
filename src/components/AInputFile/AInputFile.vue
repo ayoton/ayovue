@@ -59,7 +59,6 @@ function handleChange(e: Event) {
   if (!targetElement.files || !targetElement.files[0]) {
     return
   }
-
   selectFile(targetElement?.files)
   emit('change', e)
 }
@@ -74,11 +73,15 @@ function selectFile(files: FileList /*File[]*/) {
     // selectedFiles.value = [];
     filesArray.forEach((file: File) => {
       let fileWithMeta: SelectedFileType = createFileWithMeta(file)
-      selectedFiles.value.push(fileWithMeta)
+      if (fileWithMeta.fileName) {
+        selectedFiles.value.push(fileWithMeta)
+      }
     })
   } else {
     let fileWithMeta = createFileWithMeta(files[0])
-    selectedFile.value = fileWithMeta
+    if (fileWithMeta.fileName) {
+      selectedFile.value = fileWithMeta
+    }
   }
 }
 
@@ -93,7 +96,13 @@ function createFileWithMeta(file: File): SelectedFileType {
   }
 
   const parts = file.name.split('.')
+
+  if (parts.length == 1) {
+    return fwm
+  }
+
   const fileExtension = parts[parts.length - 1]
+
   let fileNameWithoutExtension = parts.slice(0, parts.length - 1).join('.')
 
   let fileName = file.name
@@ -169,7 +178,7 @@ defineExpose({
     class=""
     :class="classes"
     :style="{
-      '--a-font-size': `${size}px`,
+      fontSize: `${size || 16}px`,
       width: width,
       aspectRatio: aspectRatio
     }"
@@ -180,7 +189,7 @@ defineExpose({
       :id="name"
       :name="name"
       type="file"
-      class="a-file__input"
+      class="a-file-input"
       @change="handleChange"
       ref="fileEl"
       :accept="accept"
@@ -188,12 +197,12 @@ defineExpose({
       capture
     />
     <label
-      class="a-file__label"
+      class="a-file-label"
       :for="name"
       v-if="(!multiple && !selectedFile.raw) || (multiple && selectedFiles.length === 0)"
     >
-      <div class="a-file__upload-icon a-icon-upload"></div>
-      <div class="mt-1">Drag & Drop files here</div>
+      <div class="a-file-upload-icon a-icon-upload"></div>
+      <div class="">Drag & Drop files here</div>
     </label>
 
     <div v-else>
@@ -201,26 +210,29 @@ defineExpose({
       <template v-if="multiple">
         <!-- {{ selectedFiles }} -->
 
-        <div class="a-file__mf-item" v-for="(f, i) in selectedFiles">
-          <div class="a-file__remove a-icon-circle-with-cross" @click="removeFile(i)">
+        <div class="a-file-mf-item" v-for="(f, i) in selectedFiles">
+          <div class="a-file-remove a-icon-circle-with-cross" @click="removeFile(i)">
             <!-- <div class="a-icon-circle-with-cross"></div> -->
           </div>
-          <div class="a-file__mf-item-image">
-            <img v-if="f.fileType == 'image'" :src="f.blobURL" alt="" style="max-width: 100%" />
-            <div class="a-file__unknown-file" v-else>
+          <div class="a-file-mf-item-image">
+            <img
+              v-if="f.fileType == 'image'"
+              :src="f.blobURL"
+              :alt="`.${f.fileExtension}`"
+              style="max-width: 100%"
+            />
+            <div class="a-file-unknown-file" v-else>
               {{ f.fileExtension }}
             </div>
           </div>
-          <div class="a-file__mf-name ml-3">
+          <div class="a-file-mf-name">
             <div>{{ f.fileName }}</div>
-            <div class="a-file__mf-size mt-1">{{ f.fileSize }}</div>
+            <div class="a-file-mf-size">{{ f.fileSize }}</div>
           </div>
         </div>
 
-        <div class="ta-center">
-          <AButton variant="info" outlined class="mt-3 mb-3" @click="chooseFile">
-            Add More
-          </AButton>
+        <div class="a-file-addmore">
+          <AButton variant="info" outlined @click="chooseFile"> Add More </AButton>
         </div>
       </template>
 
@@ -229,38 +241,38 @@ defineExpose({
         <img
           v-if="selectedFile.raw && selectedFile.fileType === 'image'"
           :src="selectedFile.blobURL"
-          alt=""
-          class="a-file__image-preview"
+          :alt="`${selectedFile.fileName}`"
+          class="a-file-image-preview"
         />
 
-        <div v-else class="a-file__common-preview d-flex jc-center ai-center fd-column">
-          <div class="a-icon-file a-file__thumbnail"></div>
+        <div v-else class="a-file-common-preview">
+          <div class="a-icon-file a-file-thumbnail"></div>
           <div>
             {{ selectedFile.fileName }}
           </div>
-          <div class="a-cf__size">
+          <div class="a-cf-size">
             {{ selectedFile.fileSize }}
           </div>
         </div>
 
         <div
           v-if="selectedFile.raw"
-          class="a-file__hover"
+          class="a-file-hover"
           :class="{
-            'a-file__hover--forced': selectedFile.fileType !== 'image'
+            'a-file-hover-forced': selectedFile.fileType !== 'image'
           }"
         >
-          <div class="a-file__hover-header">
+          <div class="a-file-hover-header">
             <label class="a-icon-pencil" @click="openFileDialog" :for="name"></label>
             <div
-              class="a-icon-close a-file__close"
+              class="a-icon-close a-file-close"
               click="resetFile"
               style="cursor: pointer"
               @click="resetFile"
             ></div>
           </div>
 
-          <div class="a-file__hover-footer" v-if="selectedFile.fileType === 'image'">
+          <div class="a-file-hover-footer" v-if="selectedFile.fileType === 'image'">
             <span>{{ selectedFile.fileName }}</span>
             <span>{{ selectedFile.fileSize }}</span>
           </div>
@@ -270,193 +282,4 @@ defineExpose({
   </div>
 </template>
 
-<style>
-.a-file {
-  position: relative;
-  border: 2px dashed var(--a-c-gray-400);
-  border-spacing: 16px;
-  border-radius: 4px;
-  padding: 8px;
-
-  &:hover {
-    border-color: var(--a-c-gray-500);
-  }
-}
-
-.a-file__label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: var(--a-c-gray-600);
-  cursor: pointer;
-}
-
-.a-file__input {
-  visibility: hidden;
-  width: 0;
-  position: absolute;
-}
-
-.a-file__upload-icon {
-  color: var(--a-c-gray-400);
-  font-size: 48px;
-}
-
-.a-file__image-preview {
-  max-width: 100%;
-  display: block;
-}
-
-.a-file__hover {
-  position: absolute;
-  top: 6px;
-  left: 6px;
-  right: 6px;
-  bottom: 6px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: #fff;
-  opacity: 0;
-  transition: all 0.2s;
-  padding: 9px 2px;
-}
-
-.a-file__hover--forced {
-  opacity: 1;
-  background: none;
-  color: var(--a-c-gray-400);
-}
-
-.a-file__hover:hover {
-  opacity: 1;
-}
-
-.a-file__hover-header,
-.a-file__hover-footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 5px;
-}
-
-.a-file__close:hover {
-  color: var(--a-c-red-200);
-}
-
-.a-file__common-preview {
-  position: absolute;
-  left: 6px;
-  top: 6px;
-  right: 6px;
-  bottom: 6px;
-  padding: 0.5em 1em;
-  background-color: var(--a-c-gray-50);
-
-  font-size: 1em;
-  color: var(--a-c-gray-600);
-}
-
-.a-fc__left {
-  /* primary/primary-400 */
-
-  border: 2px solid var(--a-c-primary-400);
-  border-radius: 4px;
-  padding: 33px;
-  font-weight: 700;
-  font-size: 1em;
-  color: var(--a-c-primary-400);
-  text-transform: uppercase;
-}
-
-.a-fc__middle {
-  flex: 1;
-  padding: 0 11px;
-}
-
-.a-fc__right {
-}
-
-.a-cf__size {
-  color: var(--a-c-gray-400);
-}
-
-.a-file__thumbnail {
-  font-size: 55px;
-  color: var(--a-c-gray-400);
-}
-
-.a-file__mf-item {
-  aspect-ratio: 29/6;
-  display: flex;
-  align-items: center;
-  background: var(--a-c-gray-50);
-  border-radius: 4px;
-  padding: 8px;
-  margin-bottom: 8px;
-  position: relative;
-}
-
-.a-file__mf-item:last-child {
-  margin-bottom: 0;
-}
-
-.a-file__mf-item-image {
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-  /* background-color: red; */
-  aspect-ratio: 6/4;
-}
-.a-file__mf-name {
-  flex: 1;
-  font-weight: 400;
-  font-size: 1em;
-  line-height: 1.125em;
-  color: var(--a-c-gray-600);
-}
-
-.a-file__mf-size {
-  color: var(--a-c-gray-400);
-}
-
-.a-file__remove {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  z-index: 99;
-  font-size: 17px;
-  color: var(--a-c-gray-300);
-  cursor: pointer;
-}
-
-.a-file__remove:hover {
-  color: var(--a-c-red-300);
-}
-
-.a-file__unknown-file {
-  border: 1px solid var(--a-c-primary-300);
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 1em;
-  line-height: 1.125em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  color: var(--a-c-primary-400);
-  text-transform: uppercase;
-  background-color: var(--a-c-primary-50);
-}
-
-.c-pointer {
-  cursor: pointer;
-}
-</style>
+<style></style>
