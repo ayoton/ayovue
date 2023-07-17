@@ -1,0 +1,101 @@
+.a-file {
+  position: relative;
+
+  & .a-file-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  & .a-file-input {
+    visibility: hidden;
+    width: 0;
+    position: absolute;
+  }
+
+  & .a-file-image-preview {
+    max-width: 100%;
+    display: block;
+  }
+
+  & .a-file-hover {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  & .a-file-hover-header,
+  & .a-file-hover-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & .a-file-common-preview {
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    right: 6px;
+    bottom: 6px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  & .a-fc-middle {
+    flex: 1;
+  }
+
+  & .a-file-mf-item {
+    aspect-ratio: 29/6;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  & .a-file-mf-item:last-child {
+    margin-bottom: 0;
+  }
+
+  & .a-file-mf-item-image {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    /* background-color: red; */
+    aspect-ratio: 6/4;
+  }
+
+  & .a-file-mf-name {
+    flex: 1;
+  }
+
+  & .a-file-remove {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    z-index: 99;
+  }
+
+  & .a-file-unknown-file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+
+  & .a-file-addmore {
+    text-align: center;
+  }
+}
