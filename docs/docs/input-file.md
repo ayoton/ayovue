@@ -22,9 +22,19 @@ function handleChange(e) {
 
 {{AInputFileMeta.description}}.
 
-## Example
+## Example 1 with single file upload
 
-&nbsp;
+  <div>
+    <AInputFile
+      aspect-ratio="5/3"
+      width="360px"
+      accept="all"
+      @change="handleChange"
+    >
+    </AInputFile>
+  </div>
+
+## Example 2 with multiple file upload
 
   <div>
     <AInputFile

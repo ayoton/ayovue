@@ -54,7 +54,7 @@ export const stringProp = {
 
 export const nameProp = {
   type: String,
-  default: `input-` + Math.ceil(Math.random() * 100000)
+  default: () => `input-` + Math.ceil(Math.random() * 100000)
 }
 
 export const stringOrNumberProp = {
