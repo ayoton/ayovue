@@ -35,8 +35,9 @@ export default defineConfig({
           { text: 'Button', link: '/docs/button.md' },
           { text: 'Button Group', link: '/docs/button-group.md' },
           { text: 'Input Field', link: '/docs/input.md' },
-          { text: 'Dialog', link: '/docs/dialog.md' },
-          { text: 'Input File', link: '/docs/input-file.md' }
+          { text: 'Input File', link: '/docs/input-file.md' },
+          { text: 'Radio Button', link: '/docs/radio-button.md' },
+          { text: 'Dialog', link: '/docs/dialog.md' }
         ]
       }
     ],

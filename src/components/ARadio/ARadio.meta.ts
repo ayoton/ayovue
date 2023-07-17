@@ -18,7 +18,8 @@ export const ARadioMeta: AComponentMeta = {
     },
     label: {
       type: String,
-      description: 'Define a label'
+      description: 'Define a label',
+      nonpg: false
     },
     variant: {
       type: variantType,
@@ -28,8 +29,7 @@ export const ARadioMeta: AComponentMeta = {
     value: {
       type: [String, Number, Date, Object, Array],
       description: 'Value for the current Radio component',
-      required: true,
-      nonpg: true
+      required: true
     },
     size: {
       type: Number,
