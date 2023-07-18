@@ -36,7 +36,9 @@ export default defineConfig({
           { text: 'Button Group', link: '/docs/button-group.md' },
           { text: 'Input Field', link: '/docs/input.md' },
           { text: 'Dialog', link: '/docs/dialog.md' },
-          { text: 'Input File', link: '/docs/input-file.md' }
+          { text: 'Input File', link: '/docs/input-file.md' },
+          { text: 'Tooltip', link: '/docs/tooltip.md' },
+          { text: 'Toasts', link: '/docs/toasts.md' }
         ]
       }
     ],

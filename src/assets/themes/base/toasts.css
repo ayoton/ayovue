@@ -1,0 +1,93 @@
+.toasts,
+.toasts--top-right {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999999;
+}
+
+.toasts--bottom-right {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  right: 0;
+  left: auto;
+  z-index: 999999;
+}
+
+.toasts--top-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  z-index: 999999;
+}
+
+.toasts--bottom-left {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  right: auto;
+  z-index: 999999;
+}
+
+.toasts--top-center {
+  position: fixed;
+  top: 0;
+  bottom: auto;
+  left: 50%;
+  right: auto;
+  z-index: 999999;
+  transform: translateX(-50%);
+}
+
+.toasts--bottom-center {
+  position: fixed;
+  top: auto;
+  bottom: 0;
+  left: 50%;
+  right: auto;
+  z-index: 999999;
+  transform: translateX(-50%);
+}
+
+.a-toast__progress {
+  min-height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  animation: var(--animation);
+  animation-timing-function: linear;
+  animation-play-state: running;
+  z-index: 9999;
+}
+
+.a-toast-type:hover .a-toast__progress {
+  animation-play-state: paused;
+}
+
+@keyframes toastprogress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.a-toast {
+  display: flex;
+  align-items: flex-start;
+  width: 333px;
+  position: relative;
+}
+
+.a-toast__content {
+  flex: 1;
+}
+
+.a-toast__close {
+  cursor: pointer;
+}

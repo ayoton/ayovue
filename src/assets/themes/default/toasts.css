@@ -1,0 +1,33 @@
+@import url('../base/toasts.css');
+.a-toast__progress {
+  background-color: var(--a-c-theme-600);
+  color: #fff;
+}
+
+.a-toast {
+  color: var(--a-c-theme-600);
+  background-color: var(--a-c-theme-50);
+  border-left: 4px solid var(--a-c-theme-600);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.a-toast__icon {
+  padding: 13px 2px 9px 9px;
+}
+
+.a-toast__heading {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 9px 11px 0 11px;
+}
+.a-toast__close {
+  padding: 13px 9px 9px 2px;
+}
+.a-toast__close:hover {
+  color: red;
+}
+.a-toast__body {
+  padding: 0 11px 11px 11px;
+  border-radius: 9px;
+}
