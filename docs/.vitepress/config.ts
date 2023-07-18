@@ -38,7 +38,9 @@ export default defineConfig({
           { text: 'Dialog', link: '/docs/dialog.md' },
           { text: 'Input File', link: '/docs/input-file.md' },
           { text: 'Tooltip', link: '/docs/tooltip.md' },
-          { text: 'Toasts', link: '/docs/toasts.md' }
+          { text: 'Toasts', link: '/docs/toasts.md' },
+          { text: 'Radio Button', link: '/docs/radio-button.md' },
+          { text: 'Checkbox', link: '/docs/checkbox.md' }
         ]
       }
     ],

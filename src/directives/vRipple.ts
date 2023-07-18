@@ -13,6 +13,7 @@ function createRipple(this: HTMLButtonElement, e: MouseEvent) {
     circle.remove()
   })
 }
+
 export const vRipple = {
   mounted(el: HTMLButtonElement) {
     el.addEventListener('click', createRipple)
