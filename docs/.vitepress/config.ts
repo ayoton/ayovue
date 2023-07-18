@@ -37,6 +37,7 @@ export default defineConfig({
           { text: 'Input Field', link: '/docs/input.md' },
           { text: 'Input File', link: '/docs/input-file.md' },
           { text: 'Radio Button', link: '/docs/radio-button.md' },
+          { text: 'Checkbox', link: '/docs/checkbox.md' },
           { text: 'Dialog', link: '/docs/dialog.md' }
         ]
       }

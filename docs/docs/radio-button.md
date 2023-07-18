@@ -1,5 +1,5 @@
 ---
-title: Button
+title: Radio Button
 lang: en-US
 layout: docs
 ---
@@ -42,7 +42,7 @@ The <code>ARadio</code> component extend the standard html radio button with the
   v-model =v
  />
 <br/><br/>
-<b>selected value:</b> {{v}}
+<b>Selected value:</b> {{v}}
 
 ## Playground
 
