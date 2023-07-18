@@ -53,14 +53,15 @@ The <code>ACheckbox</code> component extend the standard html checkbox element w
 
 Checkbox component has the following props.
 
-| Prop name | Type    | Required | Default value | Details                                                                                                                                                                                                              |
-| --------- | ------- | -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| label     | String  | No       |               | Define lable for the checkbox.                                                                                                                                                                                       |
-| outlined  | Boolean | No       | false         | Enable outlined variant.                                                                                                                                                                                             |
-| rounded   | Boolean | No       | false         | Enable rounded variant.                                                                                                                                                                                              |
-| disabled  | Boolean | No       | false         | Make the radio disable.                                                                                                                                                                                              |
-| variant   | String  | No       | primary       | Defines the color variant of the Radio button which has the following values: <br> <code>primary</code>, <code>secondary</code>, <code>success</code>, <code>info</code>, <code>warning</code> , <code>danger</code> |
-| size      | Number  | No       | 16            | Defines the size of the checkbox.                                                                                                                                                                                    |
+| Prop name  | Type    | Required | Default value | Details                                                                                                                                                                                                              |
+| ---------- | ------- | -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| label      | String  | No       |               | Define lable for the checkbox.                                                                                                                                                                                       |
+| modelValue | any     | No       |               | modelValue to bind using v-model.                                                                                                                                                                                    |
+| outlined   | Boolean | No       | false         | Enable outlined variant.                                                                                                                                                                                             |
+| rounded    | Boolean | No       | false         | Enable rounded variant.                                                                                                                                                                                              |
+| disabled   | Boolean | No       | false         | Make the radio disable.                                                                                                                                                                                              |
+| variant    | String  | No       | primary       | Defines the color variant of the Radio button which has the following values: <br> <code>primary</code>, <code>secondary</code>, <code>success</code>, <code>info</code>, <code>warning</code> , <code>danger</code> |
+| size       | Number  | No       | 16            | Defines the size of the checkbox.                                                                                                                                                                                    |
 
 ## Slots
 
