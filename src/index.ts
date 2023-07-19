@@ -5,4 +5,5 @@ import ADialog from "./components/ADialog/index";
 import AInput from "./components/AInput/index";
 import AInputFile from "./components/AInputFile/index";
 import ARadio from "./components/ARadio/index";
-export { AButton, AButtonGroup, ACheckbox, ADialog, AInput, AInputFile, ARadio };
+import ASwitch from "./components/ASwitch/index";
+export { AButton, AButtonGroup, ACheckbox, ADialog, AInput, AInputFile, ARadio, ASwitch };
