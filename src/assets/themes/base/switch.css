@@ -1,0 +1,88 @@
+.a-switch {
+  --outline-color: #c4c4c4;
+  --circle-background: linear-gradient(145deg, #ffffff, #e4e4e4);
+  --radius: 2em;
+  color: var(--color, white);
+  position: relative;
+  background-color: var(--background-color, #808080);
+  display: inline-flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  border: none;
+  height: 2em;
+  min-width: 4em;
+  cursor: pointer;
+  box-sizing: border-box;
+  overflow: hidden;
+  user-select: none;
+}
+.a-switch[aria-disabled='true'] {
+  pointer-events: none;
+  cursor: default;
+  opacity: 0.5;
+}
+.a-switch:focus {
+  outline: 3px solid var(--outline-color);
+}
+.invisible-text {
+  visibility: hidden;
+  margin-left: 3em;
+}
+
+.a-switch-label-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: inline-flex;
+}
+.a-switch-label {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  filter: unset;
+}
+.a-switch-text {
+  display: inline-flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  height: 100%;
+  width: calc(100% - 1.6em);
+}
+.a-switch-label > .a-switch-circle {
+  background: white;
+  width: 1.6em;
+  height: 1.6em;
+  margin: 0.2em;
+  border-radius: calc(var(--radius) * 0.8);
+  display: inline-flex;
+  flex-shrink: 0;
+  position: absolute;
+  left: calc(100% - 2em);
+  background: var(--circle-background);
+  align-items: center;
+  justify-content: center;
+}
+
+.a-switch-off .a-switch-circle {
+  left: 0%;
+}
+
+.a-switch-label > .a-switch-text:first-child {
+  left: 0;
+}
+.a-switch-off .a-switch-text:first-child {
+  left: calc(-100% + 2em);
+}
+.a-switch-off .a-switch-circle {
+  left: 0%;
+}
+.a-switch-text:last-child {
+  right: calc(-100% + 1.6em);
+}
+.a-switch-off .a-switch-text:last-child {
+  right: 0%;
+}

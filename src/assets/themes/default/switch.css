@@ -1,0 +1,21 @@
+@import url('../base/switch.css');
+.a-switch {
+  --background-color: var(--a-c-theme-600);
+  --color: var(--a-c-theme-50);
+  --outline-color: var(--a-c-theme-300);
+  /* --circle-background: linear-gradient(145deg, #ffffff, #e4e4e4); */
+  --radius: 2em;
+  transition: all 250ms linear;
+}
+
+.a-switch .a-switch-circle {
+  color: var(--a-c-theme-600);
+}
+
+.a-switch.a-switch-off {
+  --background-color: var(--a-c-theme-500);
+}
+
+.a-switch-label > * {
+  transition: all 250ms linear;
+}
