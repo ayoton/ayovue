@@ -1,6 +1,7 @@
 // https://vitepress.dev/guide/custom-theme
 import { h } from 'vue'
 import Theme from 'vitepress/theme'
+import './ayoflex.min.css'
 import './style.css'
 import '../../../src/assets/themes/default/all.css'
 

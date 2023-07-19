@@ -1,10 +1,10 @@
 <template>
   <div class="title">{{ title }}</div>
-  <div class="row">
+  <div class="row1">
     <p><slot></slot></p>
   </div>
 
-  <div class="row">
+  <div class="row1">
     <div v-for="member in members" class="card">
       <div class="pic"><img :src="member.avatar" alt="" /></div>
       <div class="name">{{ member.name }}</div>
@@ -58,7 +58,7 @@ export default {
   text-align: center;
   border-radius: 10px;
 }
-.row {
+.row1 {
   text-align: center;
   padding: 10px 0px;
 }
