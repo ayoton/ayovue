@@ -42,7 +42,8 @@ export default defineConfig({
           { text: 'Select', link: '/docs/select.md' },
           { text: 'Switch', link: '/docs/switch.md' },
           { text: 'Toasts', link: '/docs/toasts.md' },
-          { text: 'Tooltip', link: '/docs/tooltip.md' }
+          { text: 'Tooltip', link: '/docs/tooltip.md' },
+          { text: 'Collapse', link: '/docs/collapse.md' }
         ]
       }
     ],
