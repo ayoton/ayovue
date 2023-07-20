@@ -9,13 +9,6 @@ import { AButton, vTooltip } from '../../src/'
 
 </script>
 
-<style> 
-  .ml-2 {
-    margin-left: 0.5em;
-  }
-
-</style>
-
 <div>
   <p> Tooltip is lorem ipsum ... </p>
   <AButton v-tooltip.left="'Left tooltip'">Left</AButton>
