@@ -23,8 +23,8 @@ const groupedToasts = computed(() => {
 
 const classes = computed(() => {
   return {
-    toasts: true,
-    [`toasts--${props.position}`]: props.position
+    'a-toasts': true,
+    [`a-toasts-${props.position}`]: props.position
   }
 })
 
@@ -61,7 +61,7 @@ function endAnimation(toast: any) {
             <div
               id="progress"
               ref="progress"
-              class="a-toast__progress"
+              class="a-toast-progress"
               :style="{
                 '--animation': `toastprogress ${toast.duration!! / 1000}s`
               }"

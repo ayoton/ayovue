@@ -40,31 +40,31 @@ function endAnimation() {
 
 <template>
   <div :class="classes">
-    <div class="a-toast__icon">
+    <div class="a-toast-icon">
       <div class="a-icon-check" v-if="toast.type === 'success'"></div>
       <div class="a-icon-warning" v-if="toast.type === 'warning'"></div>
       <div class="a-icon-danger" v-if="toast.type === 'danger'"></div>
       <div class="a-icon-info" v-if="toast.type === 'info'"></div>
     </div>
-    <div class="a-toast__content">
-      <div class="a-toast__heading">
+    <div class="a-toast-content">
+      <div class="a-toast-heading">
         {{ toast.summary }}
       </div>
 
-      <div class="a-toast__body" @click.stop>
+      <div class="a-toast-body" @click.stop>
         <slot>
           {{ toast.detail }}
         </slot>
       </div>
     </div>
-    <div class="a-toast__close" @click="closeToast">
+    <div class="a-toast-close" @click="closeToast">
       <div class="a-icon-close"></div>
     </div>
 
     <!-- <div
       id="progress"
       ref="progress"
-      class="a-toast__progress"
+      class="a-toast-progress"
       :style="{
         '--animation': `toastprogress ${toast.duration!! / 1000}s`
       }"
