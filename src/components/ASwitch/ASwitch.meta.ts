@@ -1,4 +1,5 @@
 import type { AComponentMeta } from '../../utils/meta-types'
+import { variantType } from '../../utils/meta-types'
 
 export const ASwitchMeta: AComponentMeta = {
   name: 'ASwitch',
@@ -6,8 +7,12 @@ export const ASwitchMeta: AComponentMeta = {
   props: {
     modelValue: {
       type: Boolean,
-      required: true,
-      description: 'Bind value'
+      description: 'Bind value',
+      nonpg: true
+    },
+    disabled: {
+      type: Boolean,
+      description: 'Desable switch'
     },
     onText: {
       type: String,
@@ -20,12 +25,12 @@ export const ASwitchMeta: AComponentMeta = {
       description: 'Text to show while value is false'
     },
     onVariation: {
-      type: String,
+      type: variantType,
       default: 'primary',
       description: 'Switch variation while value is true'
     },
     offVariation: {
-      type: String,
+      type: variantType,
       default: 'secondary',
       description: 'Switch variation while value is false'
     },

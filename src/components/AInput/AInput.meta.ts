@@ -22,7 +22,7 @@ export const AInputMeta: AComponentMeta = {
     },
 
     variant: {
-      type: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', ''],
+      type: ['primary', 'secondary', 'success', 'info', 'warning', 'danger'],
       description: 'Defines the color variant of the button.',
       default: 'primary'
     },
