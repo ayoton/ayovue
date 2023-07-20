@@ -39,6 +39,7 @@ export default defineConfig({
           { text: 'Input Field', link: '/docs/input.md' },
           { text: 'Input File', link: '/docs/input-file.md' },
           { text: 'Radio Button', link: '/docs/radio-button.md' },
+          { text: 'Select', link: '/docs/select.md' },
           { text: 'Switch', link: '/docs/switch.md' },
           { text: 'Toasts', link: '/docs/toasts.md' },
           { text: 'Tooltip', link: '/docs/tooltip.md' }
