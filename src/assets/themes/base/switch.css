@@ -27,6 +27,8 @@
 .invisible-text {
   visibility: hidden;
   margin-left: 3em;
+  height: 1px;
+  overflow: hidden;
 }
 
 .a-switch-label-wrapper {
