@@ -7,6 +7,8 @@ layout: docs
 <script setup lang="ts">
 import { ref }  from "vue"
 import { ACollapse, AButton } from '../../src/'
+import { ACollapseMeta } from '../../src/components/ACollapse/ACollapse.meta'
+
 
 const opened = ref(false);
 
@@ -22,7 +24,8 @@ const opened = ref(false);
 </style>
 
 <div>
-  <p> Collapse is lorem ipsum ... </p>
+  <h2> Collapse </h2>
+  <p> {{ ACollapseMeta.description }} </p>
   <AButton @click="opened = !opened">Show / Hide</AButton>
   <ACollapse :open="opened">
     <p class="my-p">
