@@ -56,7 +56,7 @@ export const AButtonMeta: AComponentMeta = {
       default: 'a-loading'
     },
     variant: {
-      type: ['primary', 'secondary', 'success', 'info', 'warning', 'danger', ''],
+      type: ['primary', 'secondary', 'success', 'info', 'warning', 'danger'],
       description: 'Defines the color variant of the button.',
       default: 'primary'
     },
