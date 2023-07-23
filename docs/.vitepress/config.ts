@@ -2,7 +2,6 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  lastUpdated: true,
   markdown: {
     lineNumbers: false
   },
@@ -10,7 +9,9 @@ export default defineConfig({
   description:
     'Open source vue components librariy which provides building blocks to create productive user   interface.',
   themeConfig: {
-    lastUpdatedText: 'Last Updated Date',
+    // outlineTitle: 'In hac pagina',
+    aside: true,
+    outline: [2, 3],
     siteTitle: false,
     logo: '/ayovue.png',
     nav: [
