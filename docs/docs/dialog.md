@@ -1,5 +1,5 @@
 ---
-title: Button
+title: Dialog
 lang: en-US
 layout: docs
 ---
@@ -16,7 +16,9 @@ const showingDialog = shallowRef(false);
 
 # Dialog
 
-{{ADialogMeta.description}}.
+The <code>ADialog</code> component creates a popup dialog / modal on a web page to display content in an overlay window.
+
+<!-- {{ADialogMeta.description}}. -->
 
 ## Dialog Playground
 
