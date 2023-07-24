@@ -2,7 +2,7 @@ import type { AComponentMeta } from '../../utils/meta-types'
 
 export const AInputMeta: AComponentMeta = {
   name: 'AInput',
-  description: 'INput is an input component',
+  description: 'AInput is an input component',
   props: {
     disabled: {
       type: Boolean,
