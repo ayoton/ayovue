@@ -20,9 +20,9 @@ function handleChange(e) {
 
 # Input File
 
-{{AInputFileMeta.description}}.
+The <code>AInputFile</code> component is a customized file uploader which can select single or multiple files with dragdrop support and can show detailed selection information, progress tracking and validations.
 
-## Example 1 with single file upload
+## Single file upload
 
   <div>
     <AInputFile
@@ -32,9 +32,14 @@ function handleChange(e) {
       @change="handleChange"
     >
     </AInputFile>
-  </div>
+  </div><br/>
 
-## Example 2 with multiple file upload
+```vue
+<AInputFile aspect-ratio="5/3" width="360px" accept="all" @change="handleChange">
+</AInputFile>
+```
+
+## Multiple files upload
 
   <div>
     <AInputFile
