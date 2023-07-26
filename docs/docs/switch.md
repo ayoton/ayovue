@@ -46,14 +46,6 @@ Switch component has the following props.
 | size       | Number  | No       | 16            | Defines the size of the checkbox.                                                                                                                                                                       |
 | disabled   | Boolean | No       | false         | Make the switch disable.                                                                                                                                                                                |
 
-## Slots
-
-Checkbox component has the following slots.
-
-| Slot name | Description                            | Props |
-| --------- | -------------------------------------- | ----- |
-| default   | Content of the radio button component. | N/A   |
-
 ## Events
 
-Checkbox component supports all native events.
+Switch component supports all native events.

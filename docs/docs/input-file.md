@@ -15,6 +15,9 @@ import { AInputFileMeta } from '../../src/components/AInputFile/AInputFile.meta'
 function handleChange(e) {
   console.log(e);
 }
+function handleDrop(e) {
+  console.log(e);
+}
 
 </script>
 
@@ -30,6 +33,7 @@ The <code>AInputFile</code> component is a customized file uploader which can se
       width="360px"
       accept="all"
       @change="handleChange"
+      @drop="handleDrop"
     >
     </AInputFile>
   </div><br/>
@@ -46,7 +50,8 @@ The <code>AInputFile</code> component is a customized file uploader which can se
       aspect-ratio="5/3"
       width="360px"
       accept="all"
-      @change="handleChange"
+      @change="handleChange" 
+      @drop="handleDrop"
       multiple
     >
     </AInputFile>
@@ -59,7 +64,7 @@ The <code>AInputFile</code> component is a customized file uploader which can se
 
 ## Props
 
-InputFile component has the following props.
+Input File component has the following props.
 
 | Prop name    | Type    | Required | Default value | Details                                                                                                                            |
 | ------------ | ------- | -------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -70,8 +75,9 @@ InputFile component has the following props.
 
 ## Events
 
-InputFile component has the following props.
+Input File component emits the following custom events.
 
-| Event name | Description |
-| ---------- | ----------- |
-| change     | dd          |
+| Event name | Description                                        |
+| ---------- | -------------------------------------------------- |
+| change     | Emit this event when select new file/files.        |
+| drop       | Emit this event when drag and drop new file/files. |

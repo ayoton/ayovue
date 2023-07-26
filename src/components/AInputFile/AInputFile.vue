@@ -134,9 +134,9 @@ function resetFile() {
 }
 
 function openFileDialog() {
-  console.log(fileEl.value)
+  // console.log(fileEl.value)
   let el = document.querySelector('#' + props.name)
-  console.log(el)
+  // console.log(el)
 }
 
 function handleDrop(e: DragEvent) {
@@ -144,7 +144,7 @@ function handleDrop(e: DragEvent) {
   const files = e.dataTransfer?.files
   // console.log(file);
   selectFile(files!!)
-  emit('drop')
+  emit('drop', e)
 }
 
 function removeFile(i: number) {

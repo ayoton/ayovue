@@ -1,5 +1,5 @@
 ---
-title: AToast
+title: Toast
 lang: en-US
 layout: docs
 ---
@@ -112,6 +112,10 @@ function showInfoToast() {
   opacity: 1;
 }
 </style>
+
+# Toast
+
+The <code>AToast</code> component is used to display messages in an overlay.
 
 <div>
   <AToasts position="top-right"> </AToasts>
