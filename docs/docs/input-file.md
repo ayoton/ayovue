@@ -50,15 +50,23 @@ The <code>AInputFile</code> component is a customized file uploader which can se
       multiple
     >
     </AInputFile>
-  </div>
+  </div><br/>
+
+```vue
+<AInputFile aspect-ratio="5/3" width="360px" accept="all" @change="handleChange" multiple>
+</AInputFile>
+```
 
 ## Props
 
 InputFile component has the following props.
 
-| Slot name | Description |
-| --------- | ----------- |
-| nn        | dd          |
+| Prop name    | Type    | Required | Default value | Details                                                                                                                            |
+| ------------ | ------- | -------- | ------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| multiple     | Boolean | No       | false         | Specify if it supports multiple file uploads or not                                                                                |
+| aspect-ratio | String  | No       | 1/1           | Define the ration of width and height                                                                                              |
+| accept       | String  | No       | all           | Default HTML <code>accept</code> attribute specifies a filter for what file types the user can pick from the file input dialog box |
+| width        | String  | No       | 100%          | Define the width of input file field                                                                                               |
 
 ## Events
 
