@@ -1,7 +1,7 @@
 ---
-title: AyoFlex Documentations
+title: Ayovue Documentations
 lang: en-US
 layout: docs
 ---
 
-# AyoFlex Documentations
+# AyoVue Documentations

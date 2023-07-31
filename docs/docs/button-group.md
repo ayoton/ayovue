@@ -14,9 +14,9 @@ import PG from '../../src/playground/PG.vue'
 
 The <code>AButtonGroup</code> component is used to create a group of buttons.
 
-## Button Group Playground
+## Playground
 
-&nbsp;
+<br/>
 
   <div>
     <PG :comp="AButtonGroup" :comp-meta="AButtonGroupMeta">

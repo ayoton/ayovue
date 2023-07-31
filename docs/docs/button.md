@@ -14,9 +14,9 @@ import PG from '../../src/playground/PG.vue'
 
 The <code>AButton</code> component extend the standard html button with the support of various styles, states and size.
 
-## Button Playground
+## Playground
 
-&nbsp;
+<br />
 
   <div>
     <PG :comp="AButton" :comp-meta="AButtonMeta"></PG>
