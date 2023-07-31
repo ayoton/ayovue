@@ -1,0 +1,42 @@
+.a-select {
+  cursor: pointer;
+
+  &:focus {
+  }
+  & .a-select-field {
+    cursor: pointer;
+  }
+
+  & .a-select-dropdown {
+    position: absolute;
+    top: calc(100% + 3px);
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    z-index: 9;
+  }
+
+  & .a-select-dropdown-top {
+    top: auto;
+    bottom: calc(100% + 3px);
+  }
+
+  & .a-select-option {
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+  }
+
+  & .a-select-arrow {
+    width: 0;
+    height: 0;
+  }
+
+  & .a-select-dropdown-fixed {
+    padding: 4px 0;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+}

@@ -67,6 +67,11 @@ export const booleanProp = {
   default: false
 }
 
+export const booleanOrFunctionProp = {
+  type: [Boolean, Function],
+  default: false
+}
+
 export const anyProp = {
   type: [String, Array, Object, Number, Date, Boolean] as any,
   default: ''
