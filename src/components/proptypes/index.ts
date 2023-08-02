@@ -43,7 +43,7 @@ export const sizeProp = {
 }
 
 export const scrollHeightProp = {
-  type: [String, Number],
+  type: Number,
   default: 188
 }
 

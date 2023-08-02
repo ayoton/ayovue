@@ -13,41 +13,35 @@ import {
   groupedOptionsFieldProp,
   groupedLabelFieldProp,
   widthAutoProp,
-  optionValueProp,
   booleanOrFunctionProp
 } from '../proptypes'
 
 const props = defineProps({
-  class: stringProp,
-  variant: variantProp,
-  clearable: booleanProp,
-  labelField: labelFieldProp,
-  valueField: valueFieldProp,
-  showSearchField: booleanOrFunctionProp,
-  floatingLabel: stringProp,
-  modelValue: anyProp,
-  label: stringProp,
-  value: stringProp,
-  size: sizeProp,
-  isDisabled: booleanOrFunctionProp,
-  width: widthAutoProp,
-  options: anyArrayProp,
-  optionValue: optionValueProp,
-  placeholder: stringProp,
-  autofocus: booleanProp,
-  scrollHeight: scrollHeightProp,
-  grouped: booleanProp,
-  groupedLabelField: groupedLabelFieldProp,
-  groupedOptionsField: groupedOptionsFieldProp,
+  variant: variantProp, // documented
+  clearable: booleanProp, // documented
+  labelField: labelFieldProp, // documented
+  valueField: valueFieldProp, // documented
+  showSearchField: booleanOrFunctionProp, // documented
+  floatingLabel: stringProp, // documented
+  modelValue: anyProp, // documented
+  size: sizeProp, // documented
+  isDisabled: booleanOrFunctionProp, // documented
+  width: widthAutoProp, //
+  options: anyArrayProp, // documented
+  placeholder: stringProp, // documented
+  autofocus: booleanProp, // documented
+  scrollHeight: scrollHeightProp, // documented
+  grouped: booleanProp, // documented
+  groupedLabelField: groupedLabelFieldProp, // documented
+  groupedOptionsField: groupedOptionsFieldProp, // documented
   groupByField: stringProp,
-  loading: booleanProp
+  loading: booleanProp // documented
 })
 
 const classes = computed(() => {
   return {
     'a-input': true,
     'a-select': true,
-    [props.class]: true,
     [`a-${props.variant}`]: true,
     'a-input-is-floating': isFloating.value,
     'a-input-is-disabled':
