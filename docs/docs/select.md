@@ -23,6 +23,18 @@ const options = [
 
 The <code>ASelect</code> component extend the standard html select element with the support of various styles, states and size..
 
+## Playground
+
+<br/>
+
+  <div>
+    <PG :comp="ASelect" :comp-meta="ASelectMeta">
+      <template #default="{ vModels }">
+        <ASelect v-bind="vModels" :options="options" v-model="vModel" />
+      </template>
+    </PG>
+  </div>
+
 ## Example
 
 {{vModel}}
