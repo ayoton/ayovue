@@ -12,6 +12,10 @@ const props = defineProps({
   disabledProps: {
     type: Array<string>,
     default: () => []
+  },
+  additionalProps: {
+    type: Object,
+    default: () => []
   }
 })
 
@@ -168,12 +172,21 @@ function handleSwitch() {
             >
           </template>
         </template>
+
+        <template v-if="Object.keys(additionalProps).length > 0">
+          <span class="prop-name" v-for="(v, k) in additionalProps" :key="k"
+            >&nbsp;&nbsp;{{ k }}<span class="code-eq">=</span
+            ><span class="code-val">"{{ v }}"</span></span
+          >
+        </template>
+
         <template v-if="modelVar">
           <span class="prop-name"
             >&nbsp;&nbsp;v-model<span class="code-eq">=</span
             ><span class="code-val">"{{ modelVar }}"</span></span
           >
         </template>
+
         <span v-if="!$slots.code && !compMeta.slots?.default" class="symb"> /</span>
         <span class="symb">&gt;</span>
         <!-- Slots -->
@@ -191,6 +204,8 @@ function handleSwitch() {
         </template>
       </div>
     </div>
+
+    <slot name="extra"></slot>
   </div>
 </template>
 

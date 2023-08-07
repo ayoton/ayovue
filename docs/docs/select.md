@@ -29,16 +29,34 @@ The <code>ASelect</code> component extend the standard html select element with 
   <PG :comp="ASelect"
     :comp-meta="ASelectMeta"
     modelVar="selectedCountry"
-    :disabledProps="[`grouped`, `groupedLabelField`, `groupedOptionsField`]">
+    :additionalProps="{':options': 'countries'}"
+    :disabledProps="[`grouped`, `groupedLabelField`, `groupedOptionsField`, `autofocus`]">
     <template #default="{ vModels }">
       <div class="d-flex ai-center">
-        <ASelect class="flex-1" v-bind="vModels" :options="countries" v-model="selectedCountry" />
+        <ASelect class="flex-1"
+          v-bind="vModels"
+          :options="countries"
+          v-model="selectedCountry" />
         <div class="flex-1 pl-5"> Selected: {{selectedCountry}}</div>
       </div>
+    </template>
+    <template #extra>
+        Script
     </template>
 
   </PG>
 </div>
+
+```vue
+<script setup>
+// Imports
+const selectedCountry = ref("");
+const countries = [
+  "Bangladesh", "India", "China", "USA", "Pakistan", "Srilanka"
+];
+<script>
+
+```
 
 ## Simple Select
 
