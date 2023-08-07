@@ -10,9 +10,9 @@ import { ASelect} from '../../src/'
 import { ASelectMeta } from '../../src/components/ASelect/ASelect.meta'
 import PG from '../../src/playground/PG.vue'
 
-const vModel = ref("");
+const selectedCountry = ref("");
 
-const options = [
+const countries = [
   "Bangladesh", "India", "China", "USA", "Pakistan", "Srilanka"
 ];
 
@@ -25,26 +25,41 @@ The <code>ASelect</code> component extend the standard html select element with 
 
 ## Playground
 
-<br/>
+<div>
+  <PG :comp="ASelect"
+    :comp-meta="ASelectMeta"
+    modelVar="selectedCountry"
+    :disabledProps="[`grouped`, `groupedLabelField`, `groupedOptionsField`]">
+    <template #default="{ vModels }">
+      <div class="d-flex ai-center">
+        <ASelect class="flex-1" v-bind="vModels" :options="countries" v-model="selectedCountry" />
+        <div class="flex-1 pl-5"> Selected: {{selectedCountry}}</div>
+      </div>
+    </template>
 
-  <div>
-    <PG :comp="ASelect" :comp-meta="ASelectMeta">
-      <template #default="{ vModels }">
-        <ASelect v-bind="vModels" :options="options" v-model="vModel" />
-      </template>
-    </PG>
-  </div>
-
-## Example
-
-{{vModel}}
-<ASelect v-model="vModel" :options="options"></ASelect>
-
-<br/>
-
-<br/>
-
-<!-- <div>
-  <PG :comp="ASelect" :comp-meta="ASelectMeta">
   </PG>
-</div> -->
+</div>
+
+## Simple Select
+
+Selected Country: {{selectedCountry}}
+<ASelect v-model="selectedCountry" placeholder="Select Country" :options="countries"></ASelect>
+<br/>
+
+```vue
+
+<script setup>
+  // Imports
+  const selectedCountry = ref("");
+  const countries = [
+    "Bangladesh", "India", "China", "USA", "Pakistan", "Srilanka"
+  ];
+<script>
+
+<template>
+  <ASelect
+    v-model="selectedCountry"
+    placeholder="Select Country"
+    :options="countries" />
+</template>
+```

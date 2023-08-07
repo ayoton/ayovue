@@ -8,6 +8,10 @@ const props = defineProps({
   modelVar: {
     type: String,
     default: ''
+  },
+  disabledProps: {
+    type: Array<string>,
+    default: () => []
   }
 })
 
@@ -102,11 +106,20 @@ function handleSwitch() {
     <hr />
 
     <div class="props-group">
-      <div v-for="bp in booleanProps" :key="bp">
+      <div
+        v-for="bp in booleanProps"
+        :key="bp"
+        :class="{ 'pb-disabled': disabledProps.includes(bp) }"
+      >
         <label> <input type="checkbox" v-model="vModels[bp]" /> {{ bp }} </label>
       </div>
 
-      <div v-for="ep in enumProps" :key="ep" class="pb">
+      <div
+        v-for="ep in enumProps"
+        :key="ep"
+        class="pb"
+        :class="{ 'pb-disabled': disabledProps.includes(ep) }"
+      >
         <div>{{ ep }}</div>
         <select v-model="vModels[ep]" class="prop-select">
           <option v-for="op in propsMeta[ep].type" :key="op">
@@ -115,12 +128,22 @@ function handleSwitch() {
         </select>
       </div>
 
-      <div v-for="sp in stringProps" :key="sp" class="pb">
+      <div
+        v-for="sp in stringProps"
+        :key="sp"
+        class="pb"
+        :class="{ 'pb-disabled': disabledProps.includes(sp) }"
+      >
         <div>{{ sp }}</div>
         <input type="text" v-model="vModels[sp]" />
       </div>
 
-      <div v-for="np in numberProps" :key="np" class="pb">
+      <div
+        v-for="np in numberProps"
+        :key="np"
+        class="pb"
+        :class="{ 'pb-disabled': disabledProps.includes(np) }"
+      >
         <div>{{ np }}</div>
         <input type="number" v-model="vModels[np]" />
       </div>
@@ -245,6 +268,11 @@ input[type='number'] {
 .pb {
   padding-bottom: 5px;
   break-inside: avoid-column;
+}
+
+.pb-disabled {
+  pointer-events: none;
+  opacity: 0.3;
 }
 
 .props-group {
