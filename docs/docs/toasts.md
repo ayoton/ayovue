@@ -7,13 +7,9 @@ layout: docs
 <script setup lang="ts">
 
 import { ref, reactive, computed } from "vue";
-
 import { AButton, AToasts, AToast } from '../../src/'
 import { generateComponentCode } from "../utils/functions";
-
-
 import { useToast } from "../../src";
-
 const { showToast } = useToast();
 
 const code = computed(() => {
@@ -31,9 +27,9 @@ const code = computed(() => {
 
 function generateToast(group?: string) {
   showToast({
-    type: "success",
+    type: "info",
     detail: "Done successfully",
-    summary: "Success",
+    summary: "Success -> info summary",
     duration: 44444,
     group
   });
@@ -42,19 +38,20 @@ function generateToast(group?: string) {
 function showSuccessToast() {
   showToast({
     type: "success",
-    detail: "Done successfully",
+    detail: "Done successfully done",
     summary: "Success",
-    duration: 3333
+    duration: 3333,
+    group: "none"
   });
 }
 
 function showDangerToast() {
   showToast({
     type: "danger",
-    detail: "Something went wrong!",
+    detail: "Something went wrong! tl",
     summary: "Error",
     duration: 3333,
-    group: "tl"
+    group: "bl"
   });
 }
 
@@ -118,8 +115,8 @@ function showInfoToast() {
 The <code>AToast</code> component is used to display messages in an overlay.
 
 <div>
-  <AToasts position="top-right"> </AToasts>
-  <AToasts position="top-left" group="tl"> </AToasts>
+  <AToasts position="top-center" group="none"></AToasts>
+  <AToasts position="top-left" group="none"> top left none group </AToasts>
   <AToasts position="top-center" group="tc"> </AToasts>
   <AToasts position="bottom-left" group="bl"> </AToasts>
   <AToasts position="bottom-right" group="br"> </AToasts>
