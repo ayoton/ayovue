@@ -8,6 +8,14 @@ const props = defineProps({
   modelVar: {
     type: String,
     default: ''
+  },
+  disabledProps: {
+    type: Array<string>,
+    default: () => []
+  },
+  additionalProps: {
+    type: Object,
+    default: () => []
   }
 })
 
@@ -102,11 +110,20 @@ function handleSwitch() {
     <hr />
 
     <div class="props-group">
-      <div v-for="bp in booleanProps" :key="bp">
+      <div
+        v-for="bp in booleanProps"
+        :key="bp"
+        :class="{ 'pb-disabled': disabledProps.includes(bp) }"
+      >
         <label> <input type="checkbox" v-model="vModels[bp]" /> {{ bp }} </label>
       </div>
 
-      <div v-for="ep in enumProps" :key="ep" class="pb">
+      <div
+        v-for="ep in enumProps"
+        :key="ep"
+        class="pb"
+        :class="{ 'pb-disabled': disabledProps.includes(ep) }"
+      >
         <div>{{ ep }}</div>
         <select v-model="vModels[ep]" class="prop-select">
           <option v-for="op in propsMeta[ep].type" :key="op">
@@ -115,12 +132,22 @@ function handleSwitch() {
         </select>
       </div>
 
-      <div v-for="sp in stringProps" :key="sp" class="pb">
+      <div
+        v-for="sp in stringProps"
+        :key="sp"
+        class="pb"
+        :class="{ 'pb-disabled': disabledProps.includes(sp) }"
+      >
         <div>{{ sp }}</div>
         <input type="text" v-model="vModels[sp]" />
       </div>
 
-      <div v-for="np in numberProps" :key="np" class="pb">
+      <div
+        v-for="np in numberProps"
+        :key="np"
+        class="pb"
+        :class="{ 'pb-disabled': disabledProps.includes(np) }"
+      >
         <div>{{ np }}</div>
         <input type="number" v-model="vModels[np]" />
       </div>
@@ -145,12 +172,21 @@ function handleSwitch() {
             >
           </template>
         </template>
+
+        <template v-if="Object.keys(additionalProps).length > 0">
+          <span class="prop-name" v-for="(v, k) in additionalProps" :key="k"
+            >&nbsp;&nbsp;{{ k }}<span class="code-eq">=</span
+            ><span class="code-val">"{{ v }}"</span></span
+          >
+        </template>
+
         <template v-if="modelVar">
           <span class="prop-name"
             >&nbsp;&nbsp;v-model<span class="code-eq">=</span
             ><span class="code-val">"{{ modelVar }}"</span></span
           >
         </template>
+
         <span v-if="!$slots.code && !compMeta.slots?.default" class="symb"> /</span>
         <span class="symb">&gt;</span>
         <!-- Slots -->
@@ -168,6 +204,8 @@ function handleSwitch() {
         </template>
       </div>
     </div>
+
+    <slot name="extra"></slot>
   </div>
 </template>
 
@@ -245,6 +283,11 @@ input[type='number'] {
 .pb {
   padding-bottom: 5px;
   break-inside: avoid-column;
+}
+
+.pb-disabled {
+  pointer-events: none;
+  opacity: 0.3;
 }
 
 .props-group {

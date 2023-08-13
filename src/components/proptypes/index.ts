@@ -43,7 +43,7 @@ export const sizeProp = {
 }
 
 export const scrollHeightProp = {
-  type: [String, Number],
+  type: [Number, String],
   default: 188
 }
 
@@ -64,6 +64,11 @@ export const stringOrNumberProp = {
 
 export const booleanProp = {
   type: Boolean,
+  default: false
+}
+
+export const booleanOrFunctionProp = {
+  type: [Boolean, Function],
   default: false
 }
 

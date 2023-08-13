@@ -44,7 +44,8 @@ export default defineConfig({
           { text: 'Switch', link: '/docs/switch.md' },
           { text: 'Toasts', link: '/docs/toasts.md' },
           { text: 'Tooltip', link: '/docs/tooltip.md' },
-          { text: 'Collapse', link: '/docs/collapse.md' }
+          { text: 'Collapse', link: '/docs/collapse.md' },
+          { text: 'Spinner', link: '/docs/spinner.md' }
         ]
       }
     ],
