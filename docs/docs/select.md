@@ -80,10 +80,12 @@ The <code>ASelect</code> component extend the standard html select element with 
     :disabledProps="[`grouped`, `groupedLabelField`, `groupedOptionsField`, `autofocus`]">
     <template #default="{ vModels }">
       <div class="d-flex ai-center">
+      <div>
         <ASelect class="flex-1"
           v-bind="vModels"
           :options="countries"
           v-model="selectedCountry" />
+      </div>    
         <div class="flex-1 pl-5"> Selected: {{selectedCountry}}</div>
       </div>
     </template>

@@ -388,7 +388,7 @@ defineExpose({
 <template>
   <div
     :class="classes"
-    :style="{ width: width || 'auto', '--a-font-size': `${size || 16}px` }"
+    :style="{ width: width || 'auto', fontSize: `${size || 16}px` }"
     ref="inputParentEl"
     aria-label="Select Box"
     tabindex="-1"
