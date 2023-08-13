@@ -68,7 +68,7 @@ const objectSelectedCountry = ref("");
 
 # Select
 
-The <code>ASelect</code> component extend the standard html select element with the support of various styles, states and size..
+The <code>ASelect</code> component is used to select information from a collection of options.
 
 ## Playground
 
