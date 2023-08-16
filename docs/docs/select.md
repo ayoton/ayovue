@@ -200,7 +200,19 @@ const groupedCountries = [
       }
     ]
   }
-]
+];
+
+const labelFieldFunction = (option: any) => option.name + "-" + option.value;
+const isDisabledFunction = (option: any) => {
+  console.log(option);
+  return option && option.name === "India";
+};
+const valueFieldFunction = (option: any) => {
+  if (!option) {
+    return;
+  }
+  return option.name + "(" + option.value + ")";
+};
 
 </script>
 
@@ -460,6 +472,115 @@ groupedOptionsField="countries"
 // Imports
 const selectedCountry = ref('')
 const groupedCountries = [
+  {
+    continent: 'Asia',
+    countries: [
+      {
+        name: 'Bangladesh',
+        value: 'bn',
+        flag: 'https://flagcdn.com/16x12/bd.png'
+      },
+      {
+        name: 'India',
+        value: 'in',
+        flag: 'https://flagcdn.com/16x12/in.png'
+      },
+      {
+        name: 'China',
+        value: 'cn',
+        flag: 'https://flagcdn.com/16x12/cn.png'
+      },
+      {
+        name: 'Russia',
+        value: 'ru',
+        flag: 'https://flagcdn.com/16x12/ru.png'
+      },
+      {
+        name: 'Srilanka',
+        value: 'sr',
+        flag: 'https://flagcdn.com/16x12/sr.png'
+      }
+    ]
+  },
+  {
+    continent: 'Europe',
+    countries: [
+      {
+        name: 'UK',
+        value: 'uk',
+        flag: 'https://flagcdn.com/16x12/gb-eng.png'
+      },
+      {
+        name: 'Germany',
+        value: 'de',
+        flag: 'https://flagcdn.com/16x12/de.png'
+      },
+      {
+        name: 'Portugal',
+        value: 'pt',
+        flag: 'https://flagcdn.com/16x12/pt.png'
+      }
+    ]
+  },
+  {
+    continent: 'North America',
+    countries: [
+      {
+        name: 'USA',
+        value: 'us',
+        flag: 'https://flagcdn.com/16x12/us.png'
+      }
+    ]
+  }
+]
+</script>
+```
+
+:::
+
+## With label and value as function
+
+Selected Country: {{objectSelectedCountry}}
+
+<ASelect
+v-model="objectSelectedCountry"
+:options="options"
+placeholder="Select Country"
+:labelField="labelFieldFunction"
+:valueField="valueFieldFunction"
+:is-disabled="isDisabledFunction"
+/>
+
+::: details View Codes
+
+```vue
+<template>
+  <ASelect
+    v-model="selectedCountry"
+    :options="cointries"
+    placeholder="Select Country"
+    :labelField="labelFieldFunction"
+    :valueField="valueFieldFunction"
+    :is-disabled="isDisabledFunction"
+  />
+</template>
+
+<script setup>
+// Imports
+
+const labelFieldFunction = (option: any) => option.name + '-' + option.value
+const isDisabledFunction = (option: any) => {
+  return option && option.name === 'India'
+}
+const valueFieldFunction = (option: any) => {
+  if (!option) {
+    return
+  }
+  return option.name + '(' + option.value + ')'
+}
+
+const selectedCountry = ref('')
+const Countries = [
   {
     continent: 'Asia',
     countries: [
