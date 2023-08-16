@@ -36,7 +36,10 @@ for (const key in propsMeta) {
     continue
   }
 
-  if (propsMeta[key].type.name === 'Boolean') {
+  if (
+    propsMeta[key].type.name === 'Boolean' ||
+    (Array.isArray(propsMeta[key].type) && propsMeta[key].type[0].name === 'Boolean')
+  ) {
     booleanProps.push(key)
   } else if (propsMeta[key].type.name === 'String') {
     stringProps.push(key)
