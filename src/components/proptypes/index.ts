@@ -83,12 +83,12 @@ export const anyArrayProp = {
 }
 
 export const labelFieldProp = {
-  type: String,
+  type: [String, Function],
   default: 'name'
 }
 
 export const valueFieldProp = {
-  type: String,
+  type: [String, Function],
   default: 'value'
 }
 
