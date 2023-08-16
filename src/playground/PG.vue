@@ -36,10 +36,7 @@ for (const key in propsMeta) {
     continue
   }
 
-  if (
-    propsMeta[key].type.name === 'Boolean' ||
-    (Array.isArray(propsMeta[key].type) && propsMeta[key].type[0].name === 'Boolean')
-  ) {
+  if (propsMeta[key].type.name === 'Boolean') {
     booleanProps.push(key)
   } else if (propsMeta[key].type.name === 'String') {
     stringProps.push(key)
@@ -48,8 +45,12 @@ for (const key in propsMeta) {
     (Array.isArray(propsMeta[key].type) && propsMeta[key].type[0].name === 'Number')
   ) {
     numberProps.push(key)
-  } else if (Array.isArray(propsMeta[key].type) && typeof propsMeta[key].type[0] !== 'function') {
-    enumProps.push(key)
+  } else if (Array.isArray(propsMeta[key].type)) {
+    if (propsMeta[key].type[0].name === 'Boolean') {
+      booleanProps.push(key)
+    } else if (typeof propsMeta[key].type[0] !== 'function') {
+      enumProps.push(key)
+    }
   }
 
   reactiveProps[key] = propsMeta[key].default
