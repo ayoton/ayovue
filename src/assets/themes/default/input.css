@@ -70,7 +70,7 @@
     color: var(--a-c-gray-400);
   }
 
-  & .a-input--is-disabled {
+  &.a-input-is-disabled {
     /* opacity: 0.5; */
     pointer-events: none;
     background-color: var(--a-c-gray-50);
