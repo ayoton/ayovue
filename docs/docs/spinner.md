@@ -22,3 +22,12 @@ The <code>ASpinner</code> component is used to show a loading icon.
 <div>
   <PG :comp="ASpinner" :comp-meta="ASpinnerMeta"></PG>
 </div>
+
+## Props
+
+Spinner component has the following props.
+
+| Prop name | Type   | Required | Default value | Details                                                                                                                                                                                                         |
+| --------- | ------ | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| variant   | String | No       | primary       | Defines the color variant of the spinner which has the following values: <br> <code>primary</code>, <code>secondary</code>, <code>success</code>, <code>info</code>, <code>warning</code> , <code>danger</code> |
+| size      | Number | No       | 16            | Defines the size of the spinner.                                                                                                                                                                                |

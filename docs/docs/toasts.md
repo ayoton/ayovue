@@ -1,5 +1,5 @@
 ---
-title: Toast
+title: Toasts
 lang: en-US
 layout: docs
 ---
@@ -11,6 +11,7 @@ import { AButton, AToasts, AToast } from '../../src/'
 import { generateComponentCode } from "../utils/functions";
 import { useToast } from "../../src";
 const { showToast } = useToast();
+const toast = useToast();
 
 const code = computed(() => {
   // return generateComponentCode(componentData);
@@ -36,7 +37,7 @@ function generateToast(group?: string) {
 }
 
 function showSuccessToast() {
-  showToast({
+  toast.showToast({
     type: "success",
     detail: "successfully done",
     summary: "Success",
@@ -75,6 +76,14 @@ function showInfoToast() {
   });
 }
 
+ toast.showToast({
+    type: "success",
+    detail: "successfully done",
+    summary: "Success",
+    duration: 3000,
+    group: "tpr"
+  });
+
 </script>
 
 <style>
@@ -112,7 +121,7 @@ function showInfoToast() {
 
 # Toast
 
-The <code>AToast</code> component is used to display messages in an overlay.
+The <code>AToasts</code> component is used to display messages in an overlay.
 
 <div>
   <AToasts position="top-left" group="tl"></AToasts>
@@ -136,6 +145,72 @@ The <code>AToast</code> component is used to display messages in an overlay.
     </template>
   </AToasts>
 </div>
+
+## Import
+
+```js
+import AToasts from 'Ayovue'
+```
+
+### useToast
+
+Toast component is controlled via the <code>useToast</code> composable that needs to be import.
+
+```js
+import { useToast } from 'Ayovue'
+```
+
+Then the <code>showToast</code> function can be used to configure toasts as
+
+```js
+const toast = useToast()
+toast.showToast({ object })
+```
+
+### showToast()
+
+showToast() function takes an oject with the following properties to define toasts:
+
+1. <b>type</b> : Defines the color variant of toast which has the values primary, secondary, info, success, warning, danger.
+2. <b>detail</b> : Description of the toast.
+3. <b>summary</b> : Title of the toast.
+4. <b>duration</b> : Duration in seconds to show toast.
+5. <b>group</b> : Define the group of toast witch is connected with the group prop of the toast component.
+
+## Examples
+
+<br/>
+
+<AButton @click="showSuccessToast()">Top right primary</AButton> <br />
+::: details View Codes
+
+```vue
+<template>
+  <AButton @click="showSuccessToast()">Top right primary</AButton>
+  <AToasts position="top-right" group="tr"> </AToasts>
+</template>
+
+<script setup>
+// Imports
+import { AButton, AToasts } from 'Ayovue/';
+import { useToast } from "../../components/composables/useToasts";
+const toast = useToast();
+
+function showSuccessToast() {
+  toast.showToast({
+    type: "success",
+    detail: "successfully done",
+    summary: "Success",
+    duration: 3000,
+    group: "tr"
+  });
+}
+<script>
+
+
+```
+
+:::
 
 <div class="row gap-0 mt-4">
   <div class="col-md-4">

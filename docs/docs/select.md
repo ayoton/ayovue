@@ -538,7 +538,7 @@ const groupedCountries = [
 
 :::
 
-## With label and value as function
+## With label, value & isDisabled as function
 
 Selected Country: {{objectSelectedCountry}}
 
@@ -683,8 +683,8 @@ Select component has the following slots.
 
 Select component has the following events.
 
-| Event name | Description | Props |
-| ---------- | ----------- | ----- |
-| aChange    |             | N/A   |
-| blur       |             | N/A   |
-| focus      |             | N/A   |
+| Event name | Description                       | Props |
+| ---------- | --------------------------------- | ----- |
+| aChange    | Emit event when modelValue change | N/A   |
+| blur       | Emit event on blur                | N/A   |
+| focus      | Emit event on focus               | N/A   |
