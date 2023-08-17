@@ -220,6 +220,12 @@ const valueFieldFunction = (option: any) => {
 
 The <code>ASelect</code> component is used to select information from a collection of options.
 
+## Import
+
+```js
+import { ASelect } from 'Ayovue'
+```
+
 ## Playground
 
 <div>
@@ -538,7 +544,7 @@ const groupedCountries = [
 
 :::
 
-## With label and value as function
+## With label, value & isDisabled as function
 
 Selected Country: {{objectSelectedCountry}}
 
@@ -646,3 +652,45 @@ const Countries = [
 ```
 
 :::
+
+## Props
+
+Select component has the following props.
+
+| Prop name           | Type              | Required | Default value | Details                                                                                                                                                                                                              |
+| ------------------- | ----------------- | -------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| modelValue          | Any               | True     |               | ModelValue to bind using <code>v-model</code> which Specifies the value of the select component                                                                                                                      |
+| options             | Array             | True     |               | An array of available options                                                                                                                                                                                        |
+| showSearchField     | Boolean, Function | No       | false         | Show a search input field.                                                                                                                                                                                           |
+| isDisabled          | Boolean, Function | No       | false         | To disable the select field                                                                                                                                                                                          |
+| clearable           | Boolean           | No       | false         | Show a clearable icon when value is available.                                                                                                                                                                       |
+| autofocus           | Boolean           | No       | false         | To focus the select field automatically                                                                                                                                                                              |
+| loading             | Boolean           | No       | false         | To show a spinner icon inside select field.                                                                                                                                                                          |
+| variant             | String            | No       | primary       | Defines the color variant of the select field which has the following values: <br> <code>primary</code>, <code>secondary</code>, <code>success</code>, <code>info</code>, <code>warning</code> , <code>danger</code> |
+| size                | Number            | No       | 16            | Defines the size of the select field.                                                                                                                                                                                |
+| width               | String            | No       | auto          | To set a custome width for the select field.                                                                                                                                                                         |
+| scrollHeight        | Number            | No       | 188           | To set a height of options list in pixel.                                                                                                                                                                            |
+| placeholder         | String            | No       |               | To add placeholder.                                                                                                                                                                                                  |
+| floatingLabel       | String            | No       |               | To add floatingLabel.                                                                                                                                                                                                |
+| grouped             | Boolean           | No       | false         | To show a grouped select field.                                                                                                                                                                                      |
+| groupedLabelField   | String            | No       |               | Property name for showing group title.                                                                                                                                                                               |
+| groupedOptionsField | String            | No       |               | Property name for getting options for each group.                                                                                                                                                                    |
+
+## Slots
+
+Select component has the following slots.
+
+| Slot name | Description                      | Props |
+| --------- | -------------------------------- | ----- |
+| option    | Custom design for option items.  | N/A   |
+| selected  | Custom design for selected item. | N/A   |
+
+## Events
+
+Select component has the following events.
+
+| Event name | Description                       | Props |
+| ---------- | --------------------------------- | ----- |
+| aChange    | Emit event when modelValue change | N/A   |
+| blur       | Emit event on blur                | N/A   |
+| focus      | Emit event on focus               | N/A   |

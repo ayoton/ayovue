@@ -36,16 +36,16 @@ export default defineConfig({
           { text: 'Button', link: '/docs/button.md' },
           { text: 'Button Group', link: '/docs/button-group.md' },
           { text: 'Checkbox', link: '/docs/checkbox.md' },
+          { text: 'Collapse', link: '/docs/collapse.md' },
           { text: 'Dialog', link: '/docs/dialog.md' },
           { text: 'Input Field', link: '/docs/input.md' },
           { text: 'Input File', link: '/docs/input-file.md' },
           { text: 'Radio Button', link: '/docs/radio-button.md' },
           { text: 'Select', link: '/docs/select.md' },
+          { text: 'Spinner', link: '/docs/spinner.md' },
           { text: 'Switch', link: '/docs/switch.md' },
           { text: 'Toasts', link: '/docs/toasts.md' },
-          { text: 'Tooltip', link: '/docs/tooltip.md' },
-          { text: 'Collapse', link: '/docs/collapse.md' },
-          { text: 'Spinner', link: '/docs/spinner.md' }
+          { text: 'Tooltip', link: '/docs/tooltip.md' }
         ]
       }
     ],

@@ -17,6 +17,12 @@ const v1=ref(false);
 
 The <code>ASwitch</code> is a custom HTML5 input-type checkbox component that allows you to perform a toggle (on/off) action between checked and unchecked states. It supports different sizes, labels, label positions, and UI customization.
 
+## Import
+
+```js
+import { ASwitch } from 'Ayovue'
+```
+
 ## Example
 
 <br/>

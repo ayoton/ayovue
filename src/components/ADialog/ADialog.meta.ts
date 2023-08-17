@@ -2,7 +2,8 @@ import type { AComponentMeta } from '../../utils/meta-types'
 
 export const ADialogMeta: AComponentMeta = {
   name: 'ADialog',
-  description: 'ADialog component creates a popup dialogs or modals on a web page to display content in an overlay window',
+  description:
+    'ADialog component creates a popup dialogs or modals on a web page to display content in an overlay window',
   props: {
     closeOnOutsideClick: {
       type: Boolean,
@@ -29,7 +30,7 @@ export const ADialogMeta: AComponentMeta = {
     }
   },
   slots: {
-    default: 'Lorem ipsum dolar',
+    default: 'Lorem ipsum dolar...',
     header: 'Header slot',
     footer: 'Footer slot'
   }

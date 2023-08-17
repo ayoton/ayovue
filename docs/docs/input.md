@@ -14,6 +14,12 @@ import PG from '../../src/playground/PG.vue'
 
 The <code>AInput</code> component extend the standard input element which has various types such as text, number, email, password, search, url, tel, date, time, range and color with the support of various styles, states and size.
 
+## Import
+
+```js
+import { AInput } from 'Ayovue'
+```
+
 ## Examples
 
 <br/>
