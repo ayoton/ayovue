@@ -76,13 +76,6 @@ function showInfoToast() {
   });
 }
 
- toast.showToast({
-    type: "success",
-    detail: "successfully done",
-    summary: "Success",
-    duration: 3000,
-    group: "tpr"
-  });
 
 </script>
 
@@ -149,7 +142,7 @@ The <code>AToasts</code> component is used to display messages in an overlay.
 ## Import
 
 ```js
-import AToasts from 'Ayovue'
+import { AToasts } from 'Ayovue'
 ```
 
 ### useToast
@@ -164,12 +157,12 @@ Then the <code>showToast</code> function can be used to configure toasts as
 
 ```js
 const toast = useToast()
-toast.showToast({ object })
+toast.showToast(object)
 ```
 
 ### showToast()
 
-showToast() function takes an oject with the following properties to define toasts:
+showToast() function takes an object with the following properties to define toasts:
 
 1. <b>type</b> : Defines the color variant of toast which has the values primary, secondary, info, success, warning, danger.
 2. <b>detail</b> : Description of the toast.
@@ -192,8 +185,7 @@ showToast() function takes an oject with the following properties to define toas
 
 <script setup>
 // Imports
-import { AButton, AToasts } from 'Ayovue/';
-import { useToast } from "../../components/composables/useToasts";
+import { AButton, AToasts, useToast } from 'Ayovue';
 const toast = useToast();
 
 function showSuccessToast() {

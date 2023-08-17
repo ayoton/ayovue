@@ -25,6 +25,12 @@ function handleDrop(e) {
 
 The <code>AInputFile</code> component is a customized file uploader which can select single or multiple files with dragdrop support and can show detailed selection information, progress tracking and validations.
 
+## Import
+
+```js
+import { AInputFile } from 'Ayovue'
+```
+
 ## Single file upload
 
   <div>

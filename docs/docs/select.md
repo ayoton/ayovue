@@ -220,6 +220,12 @@ const valueFieldFunction = (option: any) => {
 
 The <code>ASelect</code> component is used to select information from a collection of options.
 
+## Import
+
+```js
+import { ASelect } from 'Ayovue'
+```
+
 ## Playground
 
 <div>

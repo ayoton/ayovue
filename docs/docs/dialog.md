@@ -21,11 +21,17 @@ The <code>ADialog</code> component creates a popup dialog / modal on a web page 
 
 <!-- {{ADialogMeta.description}}. -->
 
-<ADialog closeOnOutsideClick width="500px" title="Dialog titles" v-model="showingDialog"> 
+## Import
+
+```js
+import { ADialog } from 'Ayovue'
+```
+
+<!-- <ADialog closeOnOutsideClick width="500px" title="Dialog titles" v-model="showingDialog">
 <template #footer>Footer slot</template>
 <template #header>Header slot</template>
 <template #default>Lorem ipsum dolar...</template>
-</ADialog>
+</ADialog> -->
 
 ## Playground
 

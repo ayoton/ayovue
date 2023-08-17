@@ -16,6 +16,12 @@ const v=ref('value1');
 
 The <code>ARadio</code> component extend the standard html radio button with the support of various styles, states and size.
 
+## Import
+
+```js
+import { ARadio } from 'Ayovue'
+```
+
 ## Example
 
 <br/>

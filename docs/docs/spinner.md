@@ -15,6 +15,12 @@ import PG from '../../src/playground/PG.vue'
 
 The <code>ASpinner</code> component is used to show a loading icon.
 
+## Import
+
+```js
+import { ASpinner } from 'Ayovue'
+```
+
 ## Playground
 
 <br/>

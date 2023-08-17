@@ -16,6 +16,12 @@ const v=ref(true);
 
 The <code>ACheckbox</code> component extend the standard html checkbox element with the support of various styles, states and size.
 
+## Import
+
+```js
+import { ACheckbox } from 'Ayovue'
+```
+
 ## Example
 
 <br/>
