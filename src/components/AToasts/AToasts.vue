@@ -16,7 +16,7 @@ const props = defineProps({
 })
 
 const groupedToasts = computed(() => {
-  return [...toasts].filter((toast) => {
+  return Array.from(toasts).filter((toast) => {
     return toast.group === props.group || (props.group === 'default' && !toast.group)
   })
 })
