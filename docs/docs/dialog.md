@@ -24,7 +24,7 @@ The <code>ADialog</code> component creates a popup dialog / modal on a web page 
 <ADialog closeOnOutsideClick width="500px" title="Dialog titles" v-model="showingDialog"> 
 <template #footer>Footer slot</template>
 <template #header>Header slot</template>
-<template #default>Lorem ipsum dolar</template>
+<template #default>Lorem ipsum dolar...</template>
 </ADialog>
 
 ## Playground
@@ -35,7 +35,7 @@ The <code>ADialog</code> component creates a popup dialog / modal on a web page 
     <PG :comp="ADialog" :comp-meta="ADialogMeta">
       <template #default="{ vModels }">
         <AButton @click="showingDialog = true">Show Dialog</AButton>
-        <ADialog v-bind="vModels" v-model="showingDialog1">
+        <ADialog v-bind="vModels" v-model="showingDialog">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
           </p>

@@ -13,7 +13,7 @@ import PG from '../../src/playground/PG.vue'
 
 # Spinner
 
-The <code>Spinner</code> is a ...
+The <code>ASpinner</code> component is used to show a loading icon.
 
 ## Playground
 

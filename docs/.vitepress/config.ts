@@ -41,11 +41,11 @@ export default defineConfig({
           { text: 'Input File', link: '/docs/input-file.md' },
           { text: 'Radio Button', link: '/docs/radio-button.md' },
           { text: 'Select', link: '/docs/select.md' },
+          { text: 'Spinner', link: '/docs/spinner.md' },
           { text: 'Switch', link: '/docs/switch.md' },
           { text: 'Toasts', link: '/docs/toasts.md' },
           { text: 'Tooltip', link: '/docs/tooltip.md' },
-          { text: 'Collapse', link: '/docs/collapse.md' },
-          { text: 'Spinner', link: '/docs/spinner.md' }
+          { text: 'Collapse', link: '/docs/collapse.md' }
         ]
       }
     ],

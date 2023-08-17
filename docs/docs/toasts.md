@@ -38,10 +38,10 @@ function generateToast(group?: string) {
 function showSuccessToast() {
   showToast({
     type: "success",
-    detail: "Done successfully done",
+    detail: "successfully done",
     summary: "Success",
     duration: 3333,
-    group: "none"
+    group: "tpr"
   });
 }
 
@@ -51,7 +51,7 @@ function showDangerToast() {
     detail: "Something went wrong! tl",
     summary: "Error",
     duration: 3333,
-    group: "bl"
+    group: "tl"
   });
 }
 
@@ -115,8 +115,8 @@ function showInfoToast() {
 The <code>AToast</code> component is used to display messages in an overlay.
 
 <div>
-  <AToasts position="top-center" group="none"></AToasts>
-  <AToasts position="top-left" group="none"> top left none group </AToasts>
+  <AToasts position="top-left" group="tl"></AToasts>
+  <AToasts position="top-right" group="tpr"> </AToasts>
   <AToasts position="top-center" group="tc"> </AToasts>
   <AToasts position="bottom-left" group="bl"> </AToasts>
   <AToasts position="bottom-right" group="br"> </AToasts>
@@ -139,9 +139,9 @@ The <code>AToast</code> component is used to display messages in an overlay.
 
 <div class="row gap-0 mt-4">
   <div class="col-md-4">
-    <h2>Default toast</h2>
+    <h2>Examples</h2>
     <div class="playground__item mt-3">
-      <AButton @click="showSuccessToast()">Success Toast</AButton> <br />
+      <AButton @click="showSuccessToast()">Top right primary</AButton> <br />
       <AButton @click="showDangerToast" class="mt-2" variant="danger">
         Top Left Danger
       </AButton>
@@ -154,11 +154,11 @@ The <code>AToast</code> component is used to display messages in an overlay.
         Bottom Right Info
       </AButton>
       <br />
-      <AButton @click="generateToast('bl')" class="mt-2">
-        Bottom Left Success
+      <AButton @click="generateToast('bl')" class="mt-2" variant="info">
+        Bottom Left info
       </AButton>
       <br />
-      <AButton @click="generateToast('bc')" class="mt-2">
+      <AButton @click="generateToast('bc')" class="mt-2" variant="info">
         Bottom Center Success
       </AButton>
       <AButton @click="generateToast('tr')" class="mt-2">
