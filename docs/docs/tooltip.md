@@ -1,5 +1,5 @@
 ---
-title: Input
+title: Tooltip
 lang: en-US
 layout: docs
 ---
