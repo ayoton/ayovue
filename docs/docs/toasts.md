@@ -30,8 +30,8 @@ function generateToast(group?: string) {
   showToast({
     type: "info",
     detail: "Done successfully",
-    summary: "Success -> info summary",
-    duration: 44444,
+    summary: "Tost title here",
+    duration: 10000,
     group
   });
 }
@@ -71,11 +71,10 @@ function showInfoToast() {
     type: "info",
     detail: "Account will be verified soon",
     summary: "Information",
-    duration: 3333,
-    group: "br"
+    duration: 3000,
+    group: "bl"
   });
 }
-
 
 </script>
 
@@ -185,52 +184,135 @@ showToast() function takes an object with the following properties to define toa
 
 <script setup>
 // Imports
-import { AButton, AToasts, useToast } from 'Ayovue';
-const toast = useToast();
+import { AButton, AToasts, useToast } from 'Ayovue'
+const toast = useToast()
 
 function showSuccessToast() {
   toast.showToast({
-    type: "success",
-    detail: "successfully done",
-    summary: "Success",
+    type: 'success',
+    detail: 'successfully done',
+    summary: 'Success',
     duration: 3000,
-    group: "tr"
-  });
+    group: 'tr'
+  })
 }
-<script>
-
-
+</script>
 ```
 
 :::
 
-<div class="row gap-0 mt-4">
-  <div class="col-md-4">
-    <h2>Examples</h2>
-    <div class="playground__item mt-3">
-      <AButton @click="showSuccessToast()">Top right primary</AButton> <br />
-      <AButton @click="showDangerToast" class="mt-2" variant="danger">
-        Top Left Danger
-      </AButton>
-      <br />
-      <AButton @click="showWarningToast" class="mt-2" variant="warning">
-        Top Center Warning
-      </AButton>
-      <br />
-      <AButton @click="showInfoToast" class="mt-2" variant="info">
-        Bottom Right Info
-      </AButton>
-      <br />
-      <AButton @click="generateToast('bl')" class="mt-2" variant="info">
-        Bottom Left info
-      </AButton>
-      <br />
-      <AButton @click="generateToast('bc')" class="mt-2" variant="info">
-        Bottom Center Success
-      </AButton>
-      <AButton @click="generateToast('tr')" class="mt-2">
-        Top Right Custom Slot
-      </AButton>
-    </div>
-  </div>
-</div>
+<AButton @click="showInfoToast" class="mt-2" variant="info">
+Bottom left Info
+</AButton>
+
+::: details View Codes
+
+```vue
+<template>
+  <AButton @click="showInfoToast" class="mt-2" variant="info">Bottom left Info</AButton>
+  <AToasts position="bottom-left" group="bl"> </AToasts>
+</template>
+
+<script setup>
+// Imports
+import { AButton, AToasts, useToast } from 'Ayovue'
+const toast = useToast()
+
+function showInfoToast() {
+  toast.showToast({
+    type: 'info',
+    detail: 'Account will be verified soon',
+    summary: 'Information',
+    duration: 3000,
+    group: 'bl'
+  })
+}
+</script>
+```
+
+:::
+
+<AButton @click="showWarningToast" class="mt-2" variant="warning">Top Center Warning</AButton>
+
+::: details View Codes
+
+```vue
+<template>
+  <AButton @click="showWarningToast" class="mt-2" variant="warning">Top Center Warning</AButton>
+  <AToasts position="top-center" group="tc"> </AToasts>
+</template>
+
+<script setup>
+// Imports
+import { AButton, AToasts, useToast } from 'Ayovue'
+const toast = useToast()
+
+function showWarningToast() {
+  toast.showToast({
+    type: 'warning',
+    detail: 'This might cause error!',
+    summary: 'Warning',
+    duration: 3000,
+    group: 'tc'
+  })
+}
+</script>
+```
+
+:::
+
+### Similarly
+
+<AButton @click="showDangerToast" class="mt-2" variant="danger">Top Left Danger</AButton> &nbsp;
+<AButton @click="generateToast('br')" class="mt-2" variant="info">Bottom right info</AButton> &nbsp;
+<AButton @click="generateToast('bc')" class="mt-2" variant="info">Bottom Center info</AButton>
+
+## Custom Slot
+
+The content of the toast can be customize by using default slot.
+
+<AButton @click="generateToast('tr')" class="mt-2">Top Right Custom Slot</AButton>
+
+::: details View Codes
+
+```vue
+<template>
+  <AButton @click="generateToast('tr')" class="mt-2">Top Right Custom Slot</AButton>
+  <AToasts position="top-right" group="tr">
+    <template #default="{ toast, close }">
+      <div class="custom-toast">
+        <div class="ta-right">
+          <button @click="close(toast)" class="close-button">X</button>
+        </div>
+        <div class="text-center">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png"
+            style="max-height: 44px"
+            alt="picture"
+          />
+          <h2>{{ toast.summary }}</h2>
+          <p>{{ toast.detail }}</p>
+        </div>
+      </div>
+    </template>
+  </AToasts>
+</template>
+
+<script setup>
+// Imports
+import { AButton, AToasts, useToast } from 'Ayovue'
+const toast = useToast()
+
+function generateToast(group?: string) {
+  toast.showToast({
+    type: 'info',
+    detail: 'Done successfully',
+    summary: 'Tost title here',
+    duration: 10000,
+    group
+  })
+}
+</script>
+```
+
+:::
