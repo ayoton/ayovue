@@ -35,7 +35,7 @@ export const AButtonGroupMeta: AComponentMeta = {
         return h(Fragment, [
           h(AButton, { variant: 'secondary' }, 'Button 1'),
           h(AButton, { variant: 'info' }, 'Button 2'),
-          h(AButton, { variant: 'warn' }, 'Button 3'),
+          h(AButton, { variant: 'warning' }, 'Button 3'),
           h(AButton, { variant: 'info' }, 'Button 4')
         ])
       }

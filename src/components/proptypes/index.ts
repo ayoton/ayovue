@@ -121,7 +121,7 @@ export const widthAutoProp = {
   default: 'auto'
 }
 
-type allowedColors = 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'success' | string
+type allowedColors = 'primary' | 'secondary' | 'danger' | 'warning' | 'info' | 'success'
 
 export const variantProp = {
   type: String as PropType<allowedColors>,
