@@ -20,7 +20,7 @@ The <code>ASwitch</code> is a custom HTML5 input-type checkbox component that al
 ## Import
 
 ```js
-import { ASwitch } from 'Ayovue'
+import { ASwitch } from 'ayovue'
 ```
 
 ## Example

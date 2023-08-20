@@ -28,7 +28,7 @@ The <code>AInputFile</code> component is a customized file uploader which can se
 ## Import
 
 ```js
-import { AInputFile } from 'Ayovue'
+import { AInputFile } from 'ayovue'
 ```
 
 ## Single file upload

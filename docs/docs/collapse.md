@@ -30,7 +30,7 @@ The <code>ACollapse</code> component is used to easily toggle visibility of almo
 ## Import
 
 ```js
-import { ACollapse } from 'Ayovue'
+import { ACollapse } from 'ayovue'
 ```
 
 ## Examples

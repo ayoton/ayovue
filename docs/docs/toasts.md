@@ -142,7 +142,7 @@ The <code>AToasts</code> component is used to display messages in an overlay.
 ## Import
 
 ```js
-import { AToasts } from 'Ayovue'
+import { AToasts } from 'ayovue'
 ```
 
 ### useToast
@@ -150,7 +150,7 @@ import { AToasts } from 'Ayovue'
 Toast component is controlled via the <code>useToast</code> composable that needs to be import.
 
 ```js
-import { useToast } from 'Ayovue'
+import { useToast } from 'ayovue'
 ```
 
 Then the <code>showToast</code> function can be used to configure toasts as

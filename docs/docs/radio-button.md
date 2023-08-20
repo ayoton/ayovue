@@ -19,7 +19,7 @@ The <code>ARadio</code> component extend the standard html radio button with the
 ## Import
 
 ```js
-import { ARadio } from 'Ayovue'
+import { ARadio } from 'ayovue'
 ```
 
 ## Example
