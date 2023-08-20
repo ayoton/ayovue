@@ -37,7 +37,7 @@ export default defineConfig({
               }
             }
             pkgJson.types = './index.d.ts'
-            await writeFile('./dist/package.json', JSON.stringify(pkgJson), 'utf-8')
+            await writeFile('./dist/package.json', JSON.stringify(pkgJson, null, 2), 'utf-8')
           }, 100)
         } catch (error) {
           console.log(error)
