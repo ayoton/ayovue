@@ -1,1 +1,1 @@
-describe("useToasts", () => {})
+describe("useToast", () => {})
