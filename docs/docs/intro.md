@@ -32,14 +32,16 @@ yarn add ayovue
 
 ## CDN
 
-You can also add AyoVue in your project from CDN:
+Coming Soon...
 
-```html
+<!-- You can also add AyoVue in your project from CDN:
+
+```html -->
 <!-- import stylesheet -->
-<link rel="stylesheet" href="https://unpkg.com/ayovue@1.0.1/dist/styles/ayovue.min.css" />
+<!-- <link rel="stylesheet" href="https://unpkg.com/ayovue@1.0.1/themes/default/all.css" /> -->
 <!-- import ayovue -->
-<script src="https://unpkg.com/ayovue@1.0.1/dist/ayovue.min.js"></script>
-```
+<!-- <script src="https://unpkg.com/ayovue@1.0.1/dist/ayovue.min.js"></script> -->
+<!-- ``` -->
 
 ## Import AyoVue
 
@@ -47,20 +49,22 @@ You can import full bundle of components or can import individual component.
 
 ### Full bundle
 
-```js
+Coming Soon...
+
+<!-- ```js
 import Vue from 'vue'
 import Ayovue from 'ayovue'
 import 'ayovue/dist/styles/ayovue.min.css'
 
 Vue.use(Ayovue)
-```
+``` -->
 
 ### Individual component
 
 ```js
 import Vue from 'vue'
 import { AButton } from 'ayovue'
-import 'ayovue/dist/styles/button.css'
+import 'ayovue/themes/default/button.css'
 
 Vue.use(AButton)
 ```

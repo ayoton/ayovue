@@ -19,7 +19,7 @@ The <code>ACheckbox</code> component extend the standard html checkbox element w
 ## Import
 
 ```js
-import { ACheckbox } from 'Ayovue'
+import { ACheckbox } from 'ayovue'
 ```
 
 ## Example

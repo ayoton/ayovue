@@ -223,7 +223,7 @@ The <code>ASelect</code> component is used to select information from a collecti
 ## Import
 
 ```js
-import { ASelect } from 'Ayovue'
+import { ASelect } from 'ayovue'
 ```
 
 ## Playground

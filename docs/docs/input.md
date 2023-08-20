@@ -17,7 +17,7 @@ The <code>AInput</code> component extend the standard input element which has va
 ## Import
 
 ```js
-import { AInput } from 'Ayovue'
+import { AInput } from 'ayovue'
 ```
 
 ## Examples
