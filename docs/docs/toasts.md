@@ -142,6 +142,7 @@ The <code>AToasts</code> component is used to display messages in an overlay.
 
 ```js
 import { AToasts } from 'ayovue'
+import 'ayovue/themes/default/toasts.css'
 ```
 
 ### useToast

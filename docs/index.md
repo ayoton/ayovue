@@ -1,6 +1,6 @@
 ---
 # https://vitepress.dev/reference/default-theme-home-page
-title: Home
+title: A progressive vue components library
 layout: home
 hero:
   name: 'AyoVue'

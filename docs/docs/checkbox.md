@@ -20,27 +20,32 @@ The <code>ACheckbox</code> component extend the standard html checkbox element w
 
 ```js
 import { ACheckbox } from 'ayovue'
+import 'ayovue/themes/default/checkbox.css'
 ```
 
 ## Example
 
 <br/>
 
-<ACheckbox variant="info" />
-<ACheckbox variant="info" outlined
+<ACheckbox variant="info" label="default"/>
+<ACheckbox variant="info" outlined label="outlined"
  />
- <ACheckbox variant="info" outlined disabled
+ <ACheckbox variant="info" outlined disabled label="disabled"
  />
- <ACheckbox variant="info" outlined disabled v-model=v
+ <ACheckbox variant="info" outlined disabled v-model=v label="checked"
  />
- <ACheckbox variant="info" rounded 
+ <ACheckbox variant="info" disabled v-model=v label="checked"
+ /><br/>
+ <ACheckbox variant="info" rounded label="rounded"
  />
  
- <ACheckbox variant="info" rounded outlined
+ <ACheckbox variant="info" rounded outlined label="outlined"
  />
- <ACheckbox variant="info" rounded disabled
+ <ACheckbox variant="info" rounded disabled label="disabled"
  />
- <ACheckbox variant="info" rounded outlined disabled v-model=v
+ <ACheckbox variant="info" rounded outlined disabled v-model=v label="checked"
+ />
+ <ACheckbox variant="info" rounded disabled v-model=v label="checked"
  />
 
 ## Playground
@@ -75,9 +80,9 @@ Checkbox component has the following props.
 
 Checkbox component has the following slots.
 
-| Slot name | Description                            | Props |
-| --------- | -------------------------------------- | ----- |
-| default   | Content of the radio button component. | N/A   |
+| Slot name | Description                        | Props |
+| --------- | ---------------------------------- | ----- |
+| default   | Content of the Checkbox component. | N/A   |
 
 ## Events
 

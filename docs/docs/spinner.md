@@ -19,6 +19,7 @@ The <code>ASpinner</code> component is used to show a loading icon.
 
 ```js
 import { ASpinner } from 'ayovue'
+import 'ayovue/themes/default/spinner.css'
 ```
 
 ## Playground

@@ -30,9 +30,9 @@ pnpm i ayovue
 yarn add ayovue
 ```
 
-## CDN
+<!-- ## CDN
 
-Coming Soon...
+Coming Soon... -->
 
 <!-- You can also add AyoVue in your project from CDN:
 
@@ -49,15 +49,15 @@ You can import full bundle of components or can import individual component.
 
 ### Full bundle
 
-Coming Soon...
+<!-- Coming Soon... -->
 
-<!-- ```js
+```js
 import Vue from 'vue'
-import Ayovue from 'ayovue'
-import 'ayovue/dist/styles/ayovue.min.css'
+import { AyoVue } from 'ayovue'
+import 'ayovue/themes/default/all.css'
 
-Vue.use(Ayovue)
-``` -->
+Vue.use(AyoVue)
+```
 
 ### Individual component
 
@@ -65,6 +65,4 @@ Vue.use(Ayovue)
 import Vue from 'vue'
 import { AButton } from 'ayovue'
 import 'ayovue/themes/default/button.css'
-
-Vue.use(AButton)
 ```
