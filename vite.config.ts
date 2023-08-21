@@ -12,7 +12,7 @@ export default defineConfig({
     vue(),
     dts({
       rollupTypes: true,
-      afterBuild() {
+      async afterBuild() {
         readFile('src/index.ts', 'utf-8').then((fileContent) => {
           const moduleDeclarationRegex = /declare module '@vue\/runtime-core' {([\s\S]*?)^}/m
           const moduleDeclarationMatch = fileContent.match(moduleDeclarationRegex)
@@ -21,41 +21,34 @@ export default defineConfig({
             appendFile('dist/index.d.ts', moduleDeclaration)
           }
         })
-      }
-    }),
-    {
-      name: 'copyFiles',
 
-      buildEnd() {
         try {
-          setTimeout(async () => {
-            await copyFile('package.json', 'dist/package.json')
-            await copyFile('./README.md', './dist/README.md')
-            const pkg = await readFile('./dist/package.json', 'utf-8')
-            const pkgJson = JSON.parse(pkg)
-            delete pkgJson.scripts
-            delete pkgJson.devDependencies
-            pkgJson.peerDependencies = { vue: pkgJson.dependencies.vue }
-            delete pkgJson.dependencies
-            pkgJson.main = 'index.mjs'
-            pkgJson.exports = {
-              '.': {
-                import: './index.mjs',
-                require: './index.js'
-              },
-              './themes/': {
-                import: './themes/',
-                require: './themes/'
-              }
+          await copyFile('package.json', 'dist/package.json')
+          await copyFile('./README.md', './dist/README.md')
+          const pkg = await readFile('./dist/package.json', 'utf-8')
+          const pkgJson = JSON.parse(pkg)
+          delete pkgJson.scripts
+          delete pkgJson.devDependencies
+          pkgJson.peerDependencies = { vue: pkgJson.dependencies.vue }
+          delete pkgJson.dependencies
+          pkgJson.main = 'index.mjs'
+          pkgJson.exports = {
+            '.': {
+              import: './index.mjs',
+              require: './index.js'
+            },
+            './themes/': {
+              import: './themes/',
+              require: './themes/'
             }
-            pkgJson.types = './index.d.ts'
-            await writeFile('./dist/package.json', JSON.stringify(pkgJson, null, 2), 'utf-8')
-          }, 100)
+          }
+          pkgJson.types = './index.d.ts'
+          await writeFile('./dist/package.json', JSON.stringify(pkgJson, null, 2), 'utf-8')
         } catch (error) {
           console.log(error)
         }
       }
-    },
+    }),
     vitePostCSSTreeShakeBuild({
       src: 'src/assets/themes',
       outDir: 'dist/themes'
