@@ -3,14 +3,26 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import { vitePostCSSTreeShakeBuild } from 'vite-postcss-tsb'
-import { copyFile, readFile, writeFile } from 'node:fs/promises'
+import { copyFile, readFile, writeFile, appendFile } from 'node:fs/promises'
 import { join } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    dts({ rollupTypes: true }),
+    dts({
+      rollupTypes: true,
+      afterBuild() {
+        readFile('src/index.ts', 'utf-8').then((fileContent) => {
+          const moduleDeclarationRegex = /declare module '@vue\/runtime-core' {([\s\S]*?)^}/m
+          const moduleDeclarationMatch = fileContent.match(moduleDeclarationRegex)
+          if (moduleDeclarationMatch) {
+            const moduleDeclaration = moduleDeclarationMatch[0]
+            appendFile('dist/index.d.ts', moduleDeclaration)
+          }
+        })
+      }
+    }),
     {
       name: 'copyFiles',
 
