@@ -31,7 +31,7 @@ declare module '@vue/runtime-core' {
       AToasts: typeof AToasts
   }
 }
-const AyoVue: Plugin = {
+export const AyoVue: Plugin = {
   install(app) {
     app.component('AButton', AButton)
     app.component('AButtonGroup', AButtonGroup)
@@ -47,5 +47,5 @@ const AyoVue: Plugin = {
     app.component('AToasts', AToasts)
   }
 }
+
 export default AyoVue
-  
