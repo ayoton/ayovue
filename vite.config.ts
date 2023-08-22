@@ -4,7 +4,6 @@ import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import { vitePostCSSTreeShakeBuild } from 'vite-postcss-tsb'
 import { copyFile, readFile, writeFile, appendFile } from 'node:fs/promises'
-import { join } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -21,7 +20,6 @@ export default defineConfig({
             appendFile('dist/index.d.ts', moduleDeclaration)
           }
         })
-
         try {
           await copyFile('package.json', 'dist/package.json')
           await copyFile('./README.md', './dist/README.md')
@@ -34,8 +32,14 @@ export default defineConfig({
           pkgJson.main = 'index.mjs'
           pkgJson.exports = {
             '.': {
-              import: './index.mjs',
-              require: './index.js'
+              import: {
+                default: './index.mjs',
+                types: './index.d.ts'
+              },
+              require: {
+                default: './index.js',
+                types: './index.d.ts'
+              }
             },
             './themes/': {
               import: './themes/',
@@ -44,8 +48,8 @@ export default defineConfig({
           }
           pkgJson.types = './index.d.ts'
           await writeFile('./dist/package.json', JSON.stringify(pkgJson, null, 2), 'utf-8')
-        } catch (error) {
-          console.log(error)
+        } catch {
+          console.error('Can not write package.json')
         }
       }
     }),
@@ -63,7 +67,12 @@ export default defineConfig({
     },
     cssCodeSplit: true,
     rollupOptions: {
-      external: ['vue']
+      external: ['vue'],
+      output: {
+        globals: {
+          vue: 'Vue'
+        }
+      }
     }
   },
   test: {
