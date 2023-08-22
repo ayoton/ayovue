@@ -5,6 +5,7 @@ export default defineConfig({
   markdown: {
     lineNumbers: false
   },
+  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   title: 'AyoVue',
   description:
     'Open source vue components librariy which provides building blocks to create productive user   interface.',
