@@ -21,6 +21,7 @@ The <code>ASwitch</code> is a custom HTML5 input-type checkbox component that al
 
 ```js
 import { ASwitch } from 'ayovue'
+import 'ayovue/themes/default/switch.css'
 ```
 
 ## Example
@@ -49,7 +50,7 @@ Switch component has the following props.
 | offText    | String  | No       |               | Text to show while the value is false.                                                                                                                                                                  |
 | onVariant  | String  | No       | primary       | Color variant of switch on state which has the following values: <br> <code>primary</code>, <code>secondary</code>, <code>success</code>, <code>info</code>, <code>warning</code> , <code>danger</code> |
 | offVariant | String  | No       | secondary     | Color variant of switch off state has the following values: <br> <code>primary</code>, <code>secondary</code>, <code>success</code>, <code>info</code>, <code>warning</code> , <code>danger</code>      |
-| size       | Number  | No       | 16            | Defines the size of the checkbox.                                                                                                                                                                       |
+| size       | Number  | No       | 16            | Defines the size of the switch.                                                                                                                                                                         |
 | disabled   | Boolean | No       | false         | Make the switch disable.                                                                                                                                                                                |
 
 ## Events

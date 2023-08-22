@@ -30,6 +30,7 @@ The <code>ADialog</code> component creates a popup dialog / modal on a web page 
 
 ```js
 import { ADialog } from 'ayovue'
+import 'ayovue/themes/default/dialog.css'
 ```
 
 <!-- <ADialog closeOnOutsideClick width="500px" title="Dialog titles" v-model="showingDialog">

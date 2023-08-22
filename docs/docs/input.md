@@ -18,6 +18,7 @@ The <code>AInput</code> component extend the standard input element which has va
 
 ```js
 import { AInput } from 'ayovue'
+import 'ayovue/themes/default/input.css'
 ```
 
 ## Examples
@@ -51,7 +52,7 @@ Input component has the following props.
 | disabled      | Boolean | No       | false         | To disable the input field                                                                                                                                                                                                                                                 |
 | clearable     | Boolean | No       | false         | To clear the input.                                                                                                                                                                                                                                                        |
 | variant       | String  | No       | primary       | Defines the color variant of the input field which has the following values: <br> <code>primary</code>, <code>secondary</code>, <code>success</code>, <code>info</code>, <code>warning</code> , <code>danger</code>                                                        |
-| size          | Number  | No       | 16            | Defines the size of the button.                                                                                                                                                                                                                                            |
+| size          | Number  | No       | 16            | Defines the size of the input field.                                                                                                                                                                                                                                       |
 | type          | String  | No       | text          | Defines the type of input which has the following values: <br> <code>text</code>, <code>number</code>, <code>email</code>, <code>password</code>, <code>search</code> , <code>url</code> , <code>date</code> , <code>time</code> , <code>range</code> , <code>color</code> |
 | placeholder   | String  | No       |               | To add placeholder.                                                                                                                                                                                                                                                        |
 | floatingLabel | String  | No       |               | To add floatingLabel.                                                                                                                                                                                                                                                      |
@@ -60,9 +61,9 @@ Input component has the following props.
 
 Input component has the following slots.
 
-| Slot name | Description                      | Props |
-| --------- | -------------------------------- | ----- |
-| default   | Content of the button component. | N/A   |
+| Slot name | Description                     | Props |
+| --------- | ------------------------------- | ----- |
+| default   | Content of the input component. | N/A   |
 
 ## Events
 

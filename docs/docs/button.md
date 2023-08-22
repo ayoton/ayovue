@@ -18,6 +18,7 @@ The <code>AButton</code> component extend the standard html button with the supp
 
 ```js
 import { AButton } from 'ayovue'
+import 'ayovue/themes/default/button.css'
 ```
 
 ## Playground

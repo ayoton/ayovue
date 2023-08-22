@@ -18,6 +18,7 @@ The <code>AButtonGroup</code> component is used to create a group of buttons.
 
 ```js
 import { AButtonGroup } from 'ayovue'
+import 'ayovue/themes/default/buttongroup.css'
 ```
 
 ## Playground
