@@ -1,7 +1,6 @@
 ---
 title: Input Field
 lang: en-US
-layout: docs
 ---
 
 <script setup lang="ts">

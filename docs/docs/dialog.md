@@ -1,7 +1,6 @@
 ---
 title: Dialog
 lang: en-US
-layout: docs
 ---
 
 <script setup lang="ts">

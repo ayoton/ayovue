@@ -1,7 +1,6 @@
 ---
 title: Introduction
 lang: en-US
-layout: docs
 ---
 
 # Introduction
