@@ -1,6 +1,6 @@
 {
   "name": "ayovue",
-  "version": "0.0.0-beta.4",
+  "version": "0.0.0-beta.5",
   "description": "A progressive vue components library designed to simplify and accelerate your web development process.",
   "scripts": {
     "dev": "vite",
