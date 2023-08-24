@@ -40,7 +40,7 @@ Coming Soon... -->
 <!-- <script src="https://unpkg.com/ayovue@1.0.1/dist/ayovue.min.js"></script> -->
 <!-- ``` -->
 
-## Import AyoVue
+## Usages
 
 You can import full bundle of components or can import individual component.
 
@@ -48,18 +48,31 @@ You can import full bundle of components or can import individual component.
 
 <!-- Coming Soon... -->
 
-```js
-import Vue from 'vue'
+```js [main.js]
+import { createApp } from 'vue'
 import { AyoVue } from 'ayovue'
+import App from './App.vue'
 import 'ayovue/themes/default/all.css'
-
-Vue.use(AyoVue)
+const app = createApp(App)
+app.use(AyoVue)
+app.mount('#app')
 ```
 
 ### Individual component
 
+To import individual component 1st import `required.css` file in <code>main.js</code> file.
+
+```js [main.js]
+import { createApp } from 'vue'
+import App from './App.vue'
+import 'ayovue/themes/default/required.css'
+createApp(App).mount('#app')
+```
+
+Then import the required component with related css in any files.
+For example to import Button component use the following steps.
+
 ```js
-import Vue from 'vue'
 import { AButton } from 'ayovue'
 import 'ayovue/themes/default/button.css'
 ```
