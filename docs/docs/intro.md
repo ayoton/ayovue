@@ -11,23 +11,21 @@ AyoVue is a progressive vue components library with a comprehensive collection o
 
 Use your favorite package manager to install Ayovue on your project
 
-### npm
+::: code-group
 
-```npm
+```sh[npm]
 npm i ayovue
 ```
 
-### pnpm
-
-```pnpm
+```sh[pnpm]
 pnpm i ayovue
 ```
 
-### yarn
-
-```yarn
+```sh[yarn]
 yarn add ayovue
 ```
+
+:::
 
 <!-- ## CDN
 
