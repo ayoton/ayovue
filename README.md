@@ -4,4 +4,4 @@
 
 ## Docs
 
-[https://ayovue.com](https://ayovue.com)
+[https://ayovue.pages.dev](https://ayovue.pages.dev)
